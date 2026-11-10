@@ -1,0 +1,277 @@
+
+/* =================================
+   1. 메인 배너
+================================= */
+
+.hero {
+    min-height: 600px;
+    padding: 100px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: var(--color-white);
+
+    background:
+        linear-gradient(
+            rgba(16, 23, 34, 0.65),
+            rgba(16, 23, 34, 0.75)
+        ),
+        linear-gradient(135deg, #263b58, #101722);
+}
+
+.hero h2 {
+    max-width: 850px;
+    margin-bottom: 25px;
+
+    font-size: 46px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--color-ivory);
+}
+
+/* =================================
+   2. 숙소 소개
+================================= */
+
+.introduction {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 30px;
+
+    text-align: center;
+}
+
+.introduction h2 {
+    margin-bottom: 25px;
+
+    font-size: 32px;
+    color: var(--color-navy);
+}
+
+.introduction p {
+    max-width: 750px;
+    margin: 0 auto;
+
+    font-size: 17px;
+    color: var(--color-gray);
+    line-height: 2;
+}
+
+/* =================================
+   3. 주요 특징
+================================= */
+
+.features {
+    padding: 90px 30px;
+    background-color: var(--color-ivory);
+
+    text-align: center;
+}
+
+.features > h2 {
+    margin-bottom: 50px;
+
+    font-size: 32px;
+    color: var(--color-navy);
+}
+
+.features article {
+    display: inline-block;
+    vertical-align: top;
+
+    width: 28%;
+    min-height: 200px;
+    margin: 10px 1%;
+
+    padding: 35px 25px;
+
+    background-color: var(--color-white);
+    border: 1px solid #e8e2d7;
+    border-radius: 8px;
+
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.features article:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.features article h3 {
+    margin-bottom: 18px;
+
+    font-size: 21px;
+    color: var(--color-navy);
+}
+
+.features article p {
+    font-size: 15px;
+    color: var(--color-gray);
+    line-height: 1.8;
+}
+
+/* =================================
+   4. 태블릿 화면
+================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 450px;
+        padding: 70px 20px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .introduction {
+        padding: 70px 25px;
+    }
+
+    .introduction h2,
+    .features > h2 {
+        font-size: 27px;
+    }
+
+    .features {
+        padding: 70px 20px;
+    }
+
+    .features article {
+        width: 45%;
+        margin: 10px 1%;
+    }
+}
+
+/* =================================
+   5. 모바일 화면
+================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .introduction h2,
+    .features > h2 {
+        font-size: 24px;
+    }
+
+    .introduction p {
+        font-size: 15px;
+    }
+
+    .features article {
+        width: 100%;
+        margin: 10px 0;
+        min-height: auto;
+    }
+}
+
+/* 홈 화면 대표 이미지 */
+.hero-image {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  margin: 30px auto;
+  border-radius: 16px;
+}
+/* 메인 객실 둘러보기 버튼 */
+.hero-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 36px;
+
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* 마우스를 올렸을 때 */
+.hero-button:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    transform: translateY(-3px);
+}
+
+/* 키보드로 버튼을 선택했을 때 */
+.hero-button:focus-visible {
+    outline: 3px solid var(--color-white);
+    outline-offset: 4px;
+}
+
+/* 메인 페이지 하단 안내 영역 */
+.home-contact {
+    padding: 70px 20px;
+    margin-top: 50px;
+    text-align: center;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+.home-contact h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.home-contact p {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.home-contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.home-contact-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.home-contact-button:hover {
+    background-color: var(--color-white);
+    transform: translateY(-3px);
+}

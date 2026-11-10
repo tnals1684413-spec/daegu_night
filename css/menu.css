@@ -1,0 +1,184 @@
+
+/* 페이지 제목 */
+
+.page-title {
+    padding: 85px 20px;
+    text-align: center;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+}
+
+.page-title h1 {
+    margin-bottom: 12px;
+    color: var(--color-gold);
+    font-size: 42px;
+    letter-spacing: 5px;
+}
+
+.page-title p {
+    font-size: 16px;
+}
+
+/* 객실 구역 */
+
+.room-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 30px;
+}
+
+.room-heading {
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.room-heading span {
+    color: var(--color-gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.room-heading h2 {
+    margin: 8px 0;
+    color: var(--color-navy);
+    font-size: 30px;
+}
+
+.room-heading p {
+    color: var(--color-gray);
+}
+
+/* 객실 카드 */
+
+.room-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.room-card {
+    overflow: hidden;
+    background-color: var(--color-white);
+    border: 1px solid #e8e2d7;
+    border-radius: 8px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-6px);
+}
+
+/* 임시 객실 이미지 영역 */
+
+.room-image {
+    height: 230px;
+    background-color: #d8d2c7;
+    background-size: cover;
+    background-position: center;
+}
+
+.room-standard {
+    background-image: linear-gradient(135deg, #9b8d7b, #d8c8ae);
+}
+
+.room-family {
+    background-image: linear-gradient(135deg, #7e8c85, #c4c9b9);
+}
+
+.room-lovely {
+    background-image: linear-gradient(135deg, #c99e9e, #f0d9d1);
+}
+
+.room-pc {
+    background-image: linear-gradient(135deg, #27374a, #71849a);
+}
+
+/* 객실 설명 */
+
+.room-info {
+    padding: 25px;
+}
+
+.room-info h3 {
+    margin-bottom: 12px;
+    color: var(--color-navy);
+    font-size: 21px;
+}
+
+.room-info p {
+    margin-bottom: 10px;
+    color: var(--color-gray);
+    font-size: 14px;
+}
+
+.room-info .room-price {
+    margin-top: 20px;
+    color: var(--color-dark);
+}
+
+.room-price strong {
+    color: #a27b3f;
+    font-size: 19px;
+}
+
+.room-info .room-capacity {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+/* 태블릿 */
+
+@media (max-width: 900px) {
+    .room-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 모바일 */
+
+@media (max-width: 550px) {
+    .page-title {
+        padding: 65px 15px;
+    }
+
+    .page-title h1 {
+        font-size: 34px;
+    }
+
+    .room-section {
+        padding: 60px 20px;
+    }
+
+    .room-heading h2 {
+        font-size: 25px;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .room-image {
+        height: 220px;
+    }
+}
+
+
+/* 객실 사진 공통 설정 */
+.room-image {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+/* 모바일 화면 */
+@media (max-width: 768px) {
+  .room-image {
+    max-height: 260px;
+  }
+}
+
