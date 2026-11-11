@@ -1,236 +1,1312 @@
+/* =========================================
+   DAEGU NIGHT - LOCATION PAGE
+   HTML + CSS ONLY
+========================================= */
 
-/* 페이지 제목 */
+/* =========================================
+   1. 기본 설정
+========================================= */
 
-.location-hero {
-    padding: 90px 20px;
-    text-align: center;
-    color: var(--color-white);
-    background: linear-gradient(135deg, #263b58, #101722);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-.location-hero span,
-.transport-heading span {
-    color: var(--color-gold);
-    font-weight: bold;
-    letter-spacing: 4px;
+.location-page {
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-ivory);
+}
+
+/* =========================================
+   2. 상단 헤더
+   HOME / ROOMS 페이지와 동일한 디자인
+========================================= */
+
+.location-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  background: rgba(10, 15, 25, 0.48);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* PC 헤더 전체 */
+
+.location-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+/* 로고 */
+
+.location-page .logo {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+/* 메뉴 */
+
+.location-page .site-nav {
+  margin-left: auto;
+}
+
+.location-page .site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0;
+}
+
+.location-page .site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.location-page .site-nav li:last-child {
+  border-right: none;
+}
+
+.location-page .site-nav a {
+  display: inline-grid;
+
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+.location-page .site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+/* 기본 영어 표시 */
+
+.location-page .site-nav .nav-en {
+  opacity: 1;
+}
+
+/* 기본 한국어 숨김 */
+
+.location-page .site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+/* 마우스 및 키보드 선택 시 영어 숨김 */
+
+.location-page .site-nav a:hover .nav-en,
+.location-page .site-nav a:focus-visible .nav-en {
+  opacity: 0;
+}
+
+/* 마우스 및 키보드 선택 시 한국어 표시 */
+
+.location-page .site-nav a:hover .nav-ko,
+.location-page .site-nav a:focus-visible .nav-ko {
+  opacity: 1;
+}
+
+.location-page .site-nav a:hover {
+  color: var(--color-gold);
+}
+
+/* PC에서는 햄버거 메뉴 숨김 */
+
+.location-page .menu-toggle,
+.location-page .menu-icon {
+  display: none;
+}
+
+/* =========================================
+   3. 메인 배너
+========================================= */
+
+.location-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 760px;
+  padding: 150px 20px 120px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image: url("../images/daegu-night.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.location-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(8, 13, 22, 0.52), rgba(8, 13, 22, 0.78));
+}
+
+.location-hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
 }
 
 .location-hero h1 {
-    margin: 15px 0;
-    font-size: 38px;
+  margin: 0 0 25px;
+
+  color: var(--color-white);
+
+  font-size: clamp(55px, 8vw, 100px);
+  font-weight: 700;
+  letter-spacing: 7px;
 }
 
-.location-hero p {
-    color: var(--color-ivory);
+.hero-divider {
+  display: block;
+
+  width: 65px;
+  height: 2px;
+
+  margin: 0 auto 28px;
+
+  background-color: var(--color-gold);
 }
 
-/* 위치 안내 */
+.hero-description {
+  margin-bottom: 42px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 16px;
+  line-height: 2;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 16px 34px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-4px);
+}
+
+.hero-button span {
+  font-size: 17px;
+}
+
+/* 스크롤 안내 */
+
+.hero-scroll {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.scroll-line {
+  display: block;
+
+  width: 1px;
+  height: 40px;
+
+  background-color: var(--color-gold);
+}
+
+/* =========================================
+   4. 공통 소제목
+========================================= */
+
+.section-subtitle {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* =========================================
+   5. 위치 안내 영역
+========================================= */
 
 .location-section {
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 85px 30px;
+  max-width: 1250px;
+  margin: 0 auto;
+
+  padding: 120px 30px;
+  box-sizing: border-box;
 }
 
 .location-heading {
-    margin-bottom: 35px;
-    text-align: center;
+  margin-bottom: 55px;
+
+  text-align: center;
 }
 
 .location-heading h2 {
-    margin-bottom: 12px;
-    color: var(--color-navy);
-    font-size: 30px;
+  margin: 12px 0 20px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .location-heading p {
-    color: var(--color-gray);
+  color: var(--color-gray);
+
+  font-size: 14px;
+  line-height: 2;
 }
 
-/* 지도 */
+/* =========================================
+   6. 지도 영역
+========================================= */
+
+.map-wrapper {
+  width: 100%;
+}
+
+.map-topline {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 18px;
+}
+
+.map-label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--color-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.map-topline h3 {
+  margin: 0;
+
+  color: var(--color-navy);
+
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.map-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--color-gray);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background-color: var(--color-gold);
+}
 
 .map-container {
-    width: 100%;
-    height: 420px;
-    overflow: hidden;
-    border-radius: 10px;
-    border: 1px solid #e8e2d7;
+  width: 100%;
+  height: 470px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(23, 36, 58, 0.1);
+  border-radius: 4px;
+
+  background-color: #e8e2d7;
+
+  box-shadow: 0 15px 40px rgba(16, 23, 34, 0.1);
 }
 
 .map-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+}
+
+.map-bottomline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 17px 20px;
+
+  background-color: var(--color-navy);
+
+  color: var(--color-white);
+
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.map-bottomline span:first-child {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.map-bottomline span:last-child {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .map-notice {
-    margin-top: 12px;
-    color: var(--color-gray);
-    font-size: 13px;
+  margin-top: 13px;
+
+  color: var(--color-gray);
+
+  font-size: 11px;
+  line-height: 1.8;
 }
 
-/* 위치 정보 카드 */
+/* =========================================
+   7. 위치 정보 카드
+========================================= */
 
 .location-info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    margin-top: 35px;
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+
+  margin-top: 50px;
 }
 
 .location-info-card {
-    padding: 30px 20px;
-    background-color: var(--color-ivory);
-    border-radius: 8px;
-    text-align: center;
-}
+  min-height: 260px;
+  box-sizing: border-box;
 
-.location-info-card h3 {
-    margin-bottom: 15px;
-    color: var(--color-gold);
-    letter-spacing: 2px;
-}
+  padding: 30px 28px;
 
-.location-info-card p {
-    margin-bottom: 10px;
-    color: var(--color-navy);
-    font-weight: bold;
-}
+  background-color: #ffffff;
 
-.location-info-card span {
-    color: var(--color-gray);
-    font-size: 13px;
-}
+  border: 1px solid #e8e3d9;
+  border-radius: 4px;
 
-/* 교통편 */
-
-.transport-section {
-    padding: 85px 30px;
-    background-color: var(--color-ivory);
-}
-
-.transport-heading {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.transport-heading h2 {
-    margin-top: 12px;
-    color: var(--color-navy);
-    font-size: 30px;
-}
-
-.transport-list {
-    max-width: 1000px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.transport-list article {
-    padding: 30px;
-    background-color: var(--color-white);
-    border-radius: 8px;
-}
-
-.transport-list h3 {
-    margin-bottom: 15px;
-    color: var(--color-navy);
-    font-size: 19px;
-}
-
-.transport-list p {
-    color: var(--color-gray);
-    font-size: 14px;
-    line-height: 1.9;
-}
-
-/* 태블릿 */
-
-@media (max-width: 768px) {
-    .location-info-grid,
-    .transport-list {
-        grid-template-columns: 1fr;
-    }
-
-    .location-hero h1 {
-        font-size: 31px;
-    }
-
-    .map-container {
-        height: 350px;
-    }
-}
-
-/* 모바일 */
-
-@media (max-width: 480px) {
-    .location-hero {
-        padding: 70px 20px;
-    }
-
-    .location-hero h1 {
-        font-size: 26px;
-    }
-
-    .location-section {
-        padding: 65px 20px;
-    }
-
-    .location-heading h2,
-    .transport-heading h2 {
-        font-size: 25px;
-    }
-
-    .map-container {
-        height: 280px;
-    }
-
-    .transport-section {
-        padding: 65px 20px;
-    }
-}
-
-/* 지도 디자인 개선 */
-
-.map-container {
-    border-radius: 14px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(16, 23, 34, 0.12);
-}
-
-/* 위치 정보 카드 개선 */
-
-.location-info-card {
-    min-height: 145px;
-    box-sizing: border-box;
-    border: 1px solid #e8e2d7;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .location-info-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(16, 23, 34, 0.09);
+  transform: translateY(-7px);
+
+  border-color: rgba(198, 165, 107, 0.8);
+
+  box-shadow: 0 15px 35px rgba(16, 23, 34, 0.09);
 }
 
-/* 교통편 카드 개선 */
+.info-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-.transport-list article {
-    border: 1px solid #e8e2d7;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  margin-bottom: 25px;
 }
 
-.transport-list article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(16, 23, 34, 0.08);
+.info-number {
+  color: var(--color-gold);
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-/* 모바일에서는 카드 움직임 최소화 */
-@media (max-width: 768px) {
-    .location-info-card:hover,
-    .transport-list article:hover {
-        transform: none;
+.info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid rgba(198, 165, 107, 0.45);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  font-size: 23px;
+}
+
+.info-category {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.location-info-card h3 {
+  margin: 0 0 15px;
+
+  color: var(--color-navy);
+
+  font-size: 21px;
+}
+
+.location-info-card p {
+  margin: 0 0 15px;
+
+  color: var(--color-dark);
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+.info-description {
+  display: block;
+
+  color: var(--color-gray);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   8. 교통편 안내 영역
+========================================= */
+
+.transport-section {
+  padding: 115px 7%;
+
+  background-color: #eeece6;
+}
+
+.transport-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.transport-heading {
+  margin-bottom: 55px;
+
+  text-align: center;
+}
+
+.transport-heading h2 {
+  margin: 12px 0 18px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.transport-heading p {
+  color: var(--color-gray);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 교통 카드 배치 */
+
+.transport-list {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+/* 교통 카드 */
+
+.transport-card {
+  position: relative;
+
+  padding: 35px 30px;
+
+  background-color: #ffffff;
+
+  border: 1px solid rgba(23, 36, 58, 0.08);
+  border-radius: 4px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.035);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.transport-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(198, 165, 107, 0.75);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.transport-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.transport-number {
+  color: var(--color-gold);
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.transport-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid rgba(198, 165, 107, 0.5);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.transport-category {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--color-gold);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.transport-card h3 {
+  margin: 0 0 18px;
+
+  color: var(--color-navy);
+
+  font-size: 21px;
+}
+
+.transport-card > p {
+  min-height: 100px;
+  margin: 0 0 25px;
+
+  color: var(--color-gray);
+
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+/* 교통 카드 하단 정보 */
+
+.transport-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding-top: 20px;
+
+  border-top: 1px solid #eae7e0;
+}
+
+.detail-label {
+  color: var(--color-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.transport-detail strong {
+  color: var(--color-navy);
+
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   9. 방문 안내 영역
+========================================= */
+
+.visit-section {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 500px;
+  padding: 110px 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image: url("../images/lounge.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.visit-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(12, 20, 32, 0.82), rgba(12, 20, 32, 0.9));
+}
+
+.visit-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.visit-small-title {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.visit-section h2 {
+  margin: 12px 0 25px;
+
+  color: var(--color-white);
+
+  font-size: 38px;
+  line-height: 1.5;
+  letter-spacing: -1px;
+}
+
+.visit-section p {
+  margin-bottom: 35px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  line-height: 2;
+}
+
+.visit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 16px 38px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.visit-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-4px);
+}
+
+.visit-button span {
+  font-size: 17px;
+}
+
+/* =========================================
+   10. 하단 푸터
+========================================= */
+
+.location-page .site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.location-page .footer-inner {
+  padding: 55px 20px;
+
+  text-align: center;
+}
+
+.location-page .footer-logo {
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.location-page .footer-inner p {
+  margin-bottom: 12px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.location-page .footer-inner .footer-slogan {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 13px;
+}
+
+.footer-divider {
+  width: 45px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background-color: var(--color-gold);
+}
+
+.location-page .footer-inner .footer-copy {
+  margin-top: 15px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 10px;
+}
+
+/* =========================================
+   11. 스크롤 애니메이션
+   JavaScript 사용하지 않음
+========================================= */
+
+@supports (animation-timeline: view()) {
+  .location-heading,
+  .map-wrapper,
+  .location-info-card,
+  .transport-card {
+    animation: locationReveal linear both;
+
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  @keyframes locationReveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
     }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* =========================================
+   12. 태블릿 헤더
+   HOME / ROOMS 페이지와 동일
+========================================= */
+
+@media (max-width: 1050px) {
+  .location-page .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .location-page .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   13. 태블릿 화면
+========================================= */
+
+@media (max-width: 900px) {
+  .location-section {
+    padding: 95px 5%;
+  }
+
+  .location-info-grid {
+    gap: 15px;
+  }
+
+  .location-info-card {
+    padding: 25px 20px;
+  }
+
+  .transport-section {
+    padding: 95px 5%;
+  }
+
+  .transport-list {
+    gap: 18px;
+  }
+
+  .transport-card {
+    padding: 28px 22px;
+  }
+}
+
+/* =========================================
+   14. 모바일 화면
+   HOME / ROOMS 페이지와 동일한 헤더
+========================================= */
+
+@media (max-width: 768px) {
+  /* 모바일 헤더 */
+
+  .location-page .header-inner {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
+
+    min-height: 70px;
+
+    padding: 0 22px;
+  }
+
+  .location-page .logo {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  /* 모바일 메뉴 버튼 */
+
+  .location-page .menu-toggle {
+    display: none;
+  }
+
+  .location-page .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
+    display: flex;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .location-page .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-gold);
+
+    border-radius: 2px;
+  }
+
+  /* 모바일 메뉴 */
+
+  .location-page .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .location-page .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .location-page .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .location-page .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .location-page .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
+    text-align: center;
+  }
+
+  /* 체크박스 선택 시 메뉴 열기 */
+
+  .location-page .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* 메인 배너 */
+
+  .location-hero {
+    min-height: 650px;
+    padding: 130px 20px 100px;
+  }
+
+  .location-hero h1 {
+    font-size: 58px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  /* 위치 안내 */
+
+  .location-section {
+    padding: 85px 6%;
+  }
+
+  .location-heading h2,
+  .transport-heading h2 {
+    font-size: 30px;
+  }
+
+  /* 지도 */
+
+  .map-container {
+    height: 380px;
+  }
+
+  /* 위치 정보 카드 */
+
+  .location-info-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .location-info-card {
+    min-height: auto;
+    padding: 28px;
+  }
+
+  /* 교통편 */
+
+  .transport-section {
+    padding: 85px 6%;
+  }
+
+  .transport-list {
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .transport-card {
+    padding: 30px;
+  }
+
+  .transport-card > p {
+    min-height: auto;
+  }
+
+  /* 방문 안내 */
+
+  .visit-section {
+    min-height: 450px;
+    padding: 95px 20px;
+  }
+
+  .visit-section h2 {
+    font-size: 31px;
+  }
+}
+
+/* =========================================
+   15. 작은 모바일 화면
+========================================= */
+
+@media (max-width: 550px) {
+  /* 메인 배너 */
+
+  .location-hero {
+    min-height: 580px;
+  }
+
+  .location-hero h1 {
+    font-size: 44px;
+    letter-spacing: 3px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-button {
+    padding: 14px 25px;
+    font-size: 11px;
+  }
+
+  /* 위치 안내 */
+
+  .location-section {
+    padding: 75px 20px;
+  }
+
+  .location-heading h2,
+  .transport-heading h2 {
+    font-size: 26px;
+  }
+
+  .location-heading p,
+  .transport-heading p {
+    font-size: 12px;
+  }
+
+  /* 지도 */
+
+  .map-topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .map-topline h3 {
+    font-size: 16px;
+  }
+
+  .map-container {
+    height: 300px;
+  }
+
+  .map-bottomline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 15px;
+  }
+
+  .map-notice {
+    font-size: 10px;
+  }
+
+  /* 위치 정보 */
+
+  .location-info-card {
+    padding: 25px 22px;
+  }
+
+  /* 교통편 */
+
+  .transport-section {
+    padding: 75px 20px;
+  }
+
+  .transport-card {
+    padding: 27px 23px;
+  }
+
+  .transport-card h3 {
+    font-size: 19px;
+  }
+
+  .transport-card > p {
+    font-size: 12px;
+  }
+
+  /* 방문 안내 */
+
+  .visit-section {
+    min-height: 420px;
+    padding: 80px 20px;
+  }
+
+  .visit-section h2 {
+    font-size: 25px;
+  }
+
+  .visit-section p {
+    font-size: 12px;
+  }
+
+  .visit-button {
+    padding: 14px 30px;
+    font-size: 12px;
+  }
+
+  /* 푸터 */
+
+  .location-page .footer-inner {
+    padding: 45px 15px;
+  }
+}
+
+/* =========================================
+   16. 움직임 최소화 설정
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .location-info-card,
+  .transport-card,
+  .hero-button,
+  .visit-button {
+    animation: none !important;
+    transition: none !important;
+  }
 }

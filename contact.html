@@ -1,182 +1,378 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>예약 및 문의 | DAEGU NIGHT</title>
 
-    <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/contact.css">
-</head>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
 
-<body>
-
+  <body class="contact-page">
+    <!-- 상단 헤더 -->
     <header class="site-header">
-        <div class="header-inner">
+      <div class="header-inner">
+        <a href="home.html" class="logo">DAEGU NIGHT</a>
 
-            <a href="home.html" class="logo">DAEGU NIGHT</a>
+        <!-- 모바일 메뉴 -->
+        <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="menu-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
+        <label for="menu-toggle" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
 
-            <nav class="site-nav">
-                <ul>
-                    <li><a href="home.html">홈</a></li>
-                    <li><a href="menu.html">객실 안내</a></li>
-                    <li><a href="about.html">소개</a></li>
-                    <li><a href="location.html">오시는 길</a></li>
-                    <li><a href="contact.html">예약 및 문의</a></li>
-                </ul>
-            </nav>
+        <!-- 상단 메뉴 -->
+        <nav class="site-nav">
+          <ul>
+            <li>
+              <a href="home.html">
+                <span class="nav-en">HOME</span>
+                <span class="nav-ko">홈</span>
+              </a>
+            </li>
 
-        </div>
+            <li>
+              <a href="menu.html">
+                <span class="nav-en">ROOMS</span>
+                <span class="nav-ko">객실 안내</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                <span class="nav-en">LOUNGE</span>
+                <span class="nav-ko">소개</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="location.html">
+                <span class="nav-en">LOCATION</span>
+                <span class="nav-ko">오시는 길</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="contact.html">
+                <span class="nav-en">RESERVATION</span>
+                <span class="nav-ko">예약 및 문의</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
+      <!-- 메인 배너 -->
+      <section class="contact-hero">
+        <div class="contact-hero-overlay"></div>
 
-        <!-- 페이지 제목 -->
-        <section class="contact-hero">
-            <span>RESERVATION & CONTACT</span>
-            <h1>특별한 밤을 예약해 보세요</h1>
-            <p>궁금한 사항이나 객실 이용 문의를 남겨주세요.</p>
-        </section>
+        <div class="contact-hero-content">
+          <span class="hero-subtitle"> DAEGU NIGHT · RESERVATION </span>
 
-        <!-- 예약 문의 양식 -->
-        <section class="reservation-section">
+          <h1>RESERVATION</h1>
 
-            <div class="reservation-heading">
-                <h2>예약 및 이용 문의</h2>
-                <p>아래 항목을 작성해 문의 내용을 전달할 준비를 해보세요.</p>
+          <span class="hero-divider"></span>
+
+          <p>
+            특별한 밤을 준비하는 첫걸음<br />
+            객실 이용과 궁금한 사항을 편하게 남겨주세요.
+          </p>
+
+          <a href="#reservation" class="hero-button">
+            MAKE AN INQUIRY
+            <span>→</span>
+          </a>
+        </div>
+
+        <div class="hero-scroll">
+          <span>SCROLL DOWN</span>
+          <span class="scroll-line"></span>
+        </div>
+      </section>
+
+      <!-- 예약 문의 영역 -->
+      <section class="reservation-section" id="reservation">
+        <div class="reservation-heading">
+          <span class="section-subtitle"> RESERVATION & INQUIRY </span>
+
+          <h2>예약 및 이용 문의</h2>
+
+          <p>
+            원하는 객실과 이용 정보를 입력해 주세요.<br />
+            방문 전 필요한 사항을 미리 확인할 수 있습니다.
+          </p>
+        </div>
+
+        <!-- 예약 양식 -->
+        <form class="reservation-form" action="#" method="get">
+          <!-- 양식 상단 -->
+          <div class="form-top">
+            <div>
+              <span class="form-label-top">GUEST INFORMATION</span>
+              <h3>기본 정보</h3>
             </div>
 
-<form class="reservation-form" action="#" method="get">
+            <p>
+              <span class="required-mark">*</span>
+              필수 입력 항목
+            </p>
+          </div>
 
-    <div class="form-group">
-        <label for="guest-name">이름</label>
-        <input
-            type="text"
-            id="guest-name"
-            name="name"
-            placeholder="이름을 입력해 주세요"
-            required>
-    </div>
+          <!-- 이름 -->
+          <div class="form-group">
+            <label for="guest-name">
+              이름 <span class="required-mark">*</span>
+            </label>
 
-    <div class="form-group">
-        <label for="guest-phone">연락처</label>
-        <input
-            type="tel"
-            id="guest-phone"
-            name="phone"
-            placeholder="연락처를 입력해 주세요"
-            required>
-    </div>
+            <input
+              type="text"
+              id="guest-name"
+              name="name"
+              placeholder="이름을 입력해 주세요"
+              autocomplete="name"
+              required
+            />
+          </div>
 
-    <div class="form-group">
-        <label for="room-type">희망 객실</label>
-        <select id="room-type" name="room" required>
-            <option value="">객실을 선택해 주세요</option>
-            <option value="standard">2층 스탠다드 객실</option>
-            <option value="theme">3층 테마 객실</option>
-            <option value="pc">4층 PC 객실</option>
-        </select>
-    </div>
+          <!-- 연락처 -->
+          <div class="form-group">
+            <label for="guest-phone">
+              연락처 <span class="required-mark">*</span>
+            </label>
 
-    <div class="form-group">
-        <label for="theme-type">희망 테마 객실</label>
-        <select id="theme-type" name="theme">
-            <option value="">테마 객실 선택 (해당하는 경우)</option>
-            <option value="prison">301호 PRISON WORLD</option>
-            <option value="space">302호 SPACE WORLD</option>
-            <option value="fantasy">303호 FANTASY WORLD</option>
-            <option value="cyberpunk">304호 CYBERPUNK WORLD</option>
-        </select>
-    </div>
+            <input
+              type="tel"
+              id="guest-phone"
+              name="phone"
+              placeholder="연락처를 입력해 주세요"
+              autocomplete="tel"
+              required
+            />
+          </div>
 
-    <div class="form-group">
-        <label for="guest-count">이용 인원</label>
-        <select id="guest-count" name="guests" required>
-            <option value="">인원을 선택해 주세요</option>
-            <option value="2">2명</option>
-            <option value="3">3명</option>
-            <option value="4">4명</option>
-            <option value="5">5명</option>
-        </select>
-    </div>
+          <div class="form-divider"></div>
 
-    <div class="form-group">
-        <label for="checkin-date">희망 이용 날짜</label>
-        <input
-            type="date"
-            id="checkin-date"
-            name="date"
-            required>
-    </div>
-
-    <div class="form-group">
-        <label for="inquiry">문의 내용</label>
-        <textarea
-            id="inquiry"
-            name="message"
-            rows="5"
-            placeholder="추가 문의 사항을 작성해 주세요"></textarea>
-    </div>
-
-    <p class="form-notice">
-        ※ 본 양식은 웹 제작 과제용 예시이며 실제 예약이나 문의가 전송되지 않습니다.
-    </p>
-
-    <button type="submit" class="submit-btn">
-        문의 내용 확인하기
-    </button>
-
-</form>
-
-        </section>
-
-        <!-- 연락처 정보 -->
-        <section class="contact-info-section">
-
-            <div class="contact-info-heading">
-                <span>CONTACT INFORMATION</span>
-                <h2>연락 및 안내 정보</h2>
+          <!-- 객실 정보 -->
+          <div class="form-top room-form-top">
+            <div>
+              <span class="form-label-top">ROOM INFORMATION</span>
+              <h3>객실 및 이용 정보</h3>
             </div>
+          </div>
 
-            <div class="contact-info-grid">
+          <!-- 희망 객실 -->
+          <div class="form-group">
+            <label for="room-type">
+              희망 객실 <span class="required-mark">*</span>
+            </label>
 
-                <article>
-                    <h3>LOCATION</h3>
-                    <p>대구광역시 중구 동성로 일대</p>
-                    <span>프로젝트용 가상 위치</span>
-                </article>
+            <select id="room-type" name="room" required>
+              <option value="">객실을 선택해 주세요</option>
 
-                <article>
-                    <h3>PHONE</h3>
-                    <p>전화번호 미정</p>
-                    <span>가상 숙소이므로 실제 연락처는 없습니다.</span>
-                </article>
+              <option value="standard">2층 스탠다드 객실</option>
 
-                <article>
-                    <h3>BUSINESS HOURS</h3>
-                    <p>운영 시간 미정</p>
-                    <span>프로젝트용 가상 운영 정보</span>
-                </article>
+              <option value="theme">3층 테마 객실</option>
 
-            </div>
+              <option value="pc">4층 PC 객실</option>
+            </select>
+          </div>
 
-        </section>
+          <!-- 테마 객실 -->
+          <div class="form-group">
+            <label for="theme-type"> 희망 테마 객실 </label>
 
+            <select id="theme-type" name="theme">
+              <option value="">테마 객실 선택 (해당하는 경우)</option>
+
+              <option value="prison">301호 PRISON WORLD</option>
+
+              <option value="space">302호 SPACE WORLD</option>
+
+              <option value="fantasy">303호 FANTASY WORLD</option>
+
+              <option value="cyberpunk">304호 CYBERPUNK WORLD</option>
+            </select>
+
+            <span class="field-description">
+              3층 테마 객실을 선택한 경우에만 작성해 주세요.
+            </span>
+          </div>
+
+          <!-- 이용 인원 -->
+          <div class="form-group">
+            <label for="guest-count">
+              이용 인원 <span class="required-mark">*</span>
+            </label>
+
+            <select id="guest-count" name="guests" required>
+              <option value="">인원을 선택해 주세요</option>
+
+              <option value="2">2명</option>
+              <option value="3">3명</option>
+              <option value="4">4명</option>
+              <option value="5">5명</option>
+            </select>
+          </div>
+
+          <!-- 이용 날짜 -->
+          <div class="form-group">
+            <label for="checkin-date">
+              희망 이용 날짜 <span class="required-mark">*</span>
+            </label>
+
+            <input type="date" id="checkin-date" name="date" required />
+          </div>
+
+          <!-- 문의 내용 -->
+          <div class="form-group">
+            <label for="inquiry"> 문의 내용 </label>
+
+            <textarea
+              id="inquiry"
+              name="message"
+              rows="6"
+              placeholder="추가 문의 사항이나 요청 사항을 작성해 주세요"
+            ></textarea>
+          </div>
+
+          <!-- 안내 문구 -->
+          <div class="form-notice">
+            <span class="notice-title"> INFORMATION </span>
+
+            <p>※ 본 양식은 웹 제작 과제용 예시입니다.</p>
+
+            <p>
+              입력한 예약 및 문의 내용은 실제 서버로 전송되거나 저장되지
+              않습니다.
+            </p>
+          </div>
+
+          <!-- 제출 버튼 -->
+          <button type="submit" class="submit-btn">
+            문의 내용 확인하기
+            <span>→</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- 연락처 정보 -->
+      <section class="contact-info-section">
+        <div class="contact-info-inner">
+          <div class="contact-info-heading">
+            <span class="section-subtitle"> CONTACT INFORMATION </span>
+
+            <h2>연락 및 안내 정보</h2>
+
+            <p>방문 전 참고할 수 있는 기본 안내 정보입니다.</p>
+          </div>
+
+          <div class="contact-info-grid">
+            <!-- 위치 -->
+            <article class="contact-info-card">
+              <div class="info-card-top">
+                <span class="info-number">01</span>
+                <span class="info-symbol">⌖</span>
+              </div>
+
+              <span class="info-category">LOCATION</span>
+
+              <h3>위치 안내</h3>
+
+              <p>
+                대구광역시 중구<br />
+                동성로 일대
+              </p>
+
+              <span class="info-description"> 프로젝트용 가상 위치 </span>
+            </article>
+
+            <!-- 전화 -->
+            <article class="contact-info-card">
+              <div class="info-card-top">
+                <span class="info-number">02</span>
+                <span class="info-symbol">☎</span>
+              </div>
+
+              <span class="info-category">PHONE</span>
+
+              <h3>전화 문의</h3>
+
+              <p>전화번호 미정</p>
+
+              <span class="info-description">
+                가상 숙소이므로 실제 연락처는 없습니다.
+              </span>
+            </article>
+
+            <!-- 운영 시간 -->
+            <article class="contact-info-card">
+              <div class="info-card-top">
+                <span class="info-number">03</span>
+                <span class="info-symbol">◷</span>
+              </div>
+
+              <span class="info-category">BUSINESS HOURS</span>
+
+              <h3>운영 시간</h3>
+
+              <p>운영 시간 미정</p>
+
+              <span class="info-description"> 프로젝트용 가상 운영 정보 </span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 하단 방문 안내 -->
+      <section class="contact-bottom">
+        <div class="contact-bottom-overlay"></div>
+
+        <div class="contact-bottom-content">
+          <span class="section-subtitle"> DAEGU NIGHT · PREMIUM STAY </span>
+
+          <span class="bottom-small-title"> YOUR NIGHT, YOUR MOMENT </span>
+
+          <h2>
+            당신의 특별한 밤을<br />
+            대구의 밤에서
+          </h2>
+
+          <p>
+            합리적인 가격으로 누리는 특별한 휴식,<br />
+            DAEGU NIGHT가 준비한 공간을 만나보세요.
+          </p>
+
+          <a href="menu.html" class="contact-bottom-button">
+            객실 둘러보기
+            <span>→</span>
+          </a>
+        </div>
+      </section>
     </main>
 
-    <footer>
-        <p>DAEGU NIGHT | 대구의 밤</p>
-        <p>대구광역시 중구 동성로 일대 (프로젝트용 가상 숙소)</p>
-        <p>본 사이트는 웹 제작 과제용 가상 숙소 브랜드입니다.</p>
-    </footer>
+    <!-- 하단 푸터 -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-logo">DAEGU NIGHT</div>
 
-</body>
+        <p class="footer-slogan">합리적인 가격으로 누리는 특별한 밤</p>
+
+        <div class="footer-divider"></div>
+
+        <p>대구광역시 중구 동성로 일대 (프로젝트용 가상 숙소)</p>
+
+        <p class="footer-copy">
+          본 사이트는 웹 제작 과제용 가상 숙소 브랜드입니다.
+        </p>
+
+        <p class="footer-copy">© 2026 DAEGU NIGHT. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
 </html>

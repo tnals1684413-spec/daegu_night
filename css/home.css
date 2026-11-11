@@ -1,277 +1,1209 @@
+/* ========================================
+   DAEGU NIGHT - HOME CSS
+======================================== */
 
-/* =================================
-   1. 메인 배너
-================================= */
+/* ========================================
+   1. 상단 메뉴
+======================================== */
+
+.home-page {
+  overflow-x: hidden;
+}
+
+.home-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  background: rgba(10, 15, 25, 0.48);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* PC 상단 메뉴 전체 */
+
+.home-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+/* 로고 왼쪽 정렬 */
+
+.home-page .logo {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  white-space: nowrap;
+}
+
+/* PC 내비게이션 오른쪽 정렬 */
+
+.home-page .site-nav {
+  margin-left: auto;
+}
+
+.home-page .site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+}
+
+.home-page .site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.home-page .site-nav li:last-child {
+  border-right: none;
+}
+
+/* 영어와 한글이 같은 위치에 표시되도록 설정 */
+
+.home-page .site-nav a {
+  display: inline-grid;
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+.home-page .site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+/* 기본 상태: 영어 표시 */
+
+.home-page .site-nav .nav-en {
+  opacity: 1;
+}
+
+/* 기본 상태: 한글 숨김 */
+
+.home-page .site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+/* 마우스를 올리면 영어 숨김 */
+
+.home-page .site-nav a:hover .nav-en,
+.home-page .site-nav a:focus-visible .nav-en {
+  opacity: 0;
+}
+
+/* 마우스를 올리면 한글 표시 */
+
+.home-page .site-nav a:hover .nav-ko,
+.home-page .site-nav a:focus-visible .nav-ko {
+  opacity: 1;
+}
+
+/* 마우스 효과 */
+
+.home-page .site-nav a:hover {
+  color: var(--color-gold);
+}
+
+/* PC에서는 햄버거 숨김 */
+
+.home-page .menu-toggle,
+.home-page .menu-icon {
+  display: none;
+}
+
+/* ========================================
+   2. 메인 슬라이드
+======================================== */
 
 .hero {
-    min-height: 600px;
-    padding: 100px 30px;
+  position: relative;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
 
-    text-align: center;
-    color: var(--color-white);
+  overflow: hidden;
 
-    background:
-        linear-gradient(
-            rgba(16, 23, 34, 0.65),
-            rgba(16, 23, 34, 0.75)
-        ),
-        linear-gradient(135deg, #263b58, #101722);
+  background: #101722;
+  color: #ffffff;
 }
 
-.hero h2 {
-    max-width: 850px;
-    margin-bottom: 25px;
+/* 라디오 버튼 숨기기 */
 
-    font-size: 46px;
-    font-weight: bold;
-    line-height: 1.4;
-    letter-spacing: 1px;
+.hero input[type="radio"] {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  opacity: 0;
+  pointer-events: none;
 }
 
-.hero p {
-    font-size: 18px;
-    color: var(--color-ivory);
+/* 슬라이드 영역 */
+
+.hero-slides {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
 }
 
-/* =================================
-   2. 숙소 소개
-================================= */
+/* 각각의 슬라이드 */
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0;
+
+  animation: hero-auto 25s infinite;
+}
+
+/* 자동 전환 순서 */
+
+.hero-slide:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero-slide:nth-child(2) {
+  animation-delay: 5s;
+}
+
+.hero-slide:nth-child(3) {
+  animation-delay: 10s;
+}
+
+.hero-slide:nth-child(4) {
+  animation-delay: 15s;
+}
+
+.hero-slide:nth-child(5) {
+  animation-delay: 20s;
+}
+
+/* 자동 전환 애니메이션 */
+
+@keyframes hero-auto {
+  0% {
+    opacity: 1;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 슬라이드 이미지 */
+
+.hero-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 자동 재생 상태 */
+
+.hero:has(#slide-auto:checked) .hero-slide {
+  animation-play-state: running;
+}
+
+/* 수동 선택 상태에서는 자동 애니메이션 정지 */
+
+.hero:has(#slide-manual-1:checked) .hero-slide,
+.hero:has(#slide-manual-2:checked) .hero-slide,
+.hero:has(#slide-manual-3:checked) .hero-slide,
+.hero:has(#slide-manual-4:checked) .hero-slide,
+.hero:has(#slide-manual-5:checked) .hero-slide {
+  animation: none;
+  opacity: 0;
+}
+
+/* 수동으로 선택한 사진만 표시 */
+
+.hero:has(#slide-manual-1:checked) .slide-one,
+.hero:has(#slide-manual-2:checked) .slide-two,
+.hero:has(#slide-manual-3:checked) .slide-three,
+.hero:has(#slide-manual-4:checked) .slide-four,
+.hero:has(#slide-manual-5:checked) .slide-five {
+  opacity: 1;
+}
+
+/* 사진 위 어두운 효과 */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: 1;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 10, 18, 0.35),
+    rgba(5, 10, 18, 0.52)
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   3. 메인 문구
+======================================== */
+
+.hero-content {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: 50%;
+
+  width: 90%;
+  max-width: 1100px;
+
+  transform: translate(-50%, -50%);
+
+  padding: 30px 20px;
+
+  text-align: center;
+
+  pointer-events: none;
+}
+
+.hero-subtitle {
+  margin-bottom: 24px;
+
+  color: var(--color-gold);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  letter-spacing: 6px;
+}
+
+.hero-content h1 {
+  margin-bottom: 25px;
+
+  color: #ffffff;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 400;
+
+  letter-spacing: 4px;
+  line-height: 1.15;
+}
+
+.hero-slogan {
+  margin-bottom: 15px;
+
+  color: rgba(255, 255, 255, 0.96);
+
+  font-size: clamp(18px, 2.2vw, 27px);
+  font-weight: 400;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* ========================================
+   4. 슬라이드 이동 바
+======================================== */
+
+.hero-indicators {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 65px;
+  left: 50%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+}
+
+.hero-indicators label {
+  display: block;
+
+  width: 34px;
+  height: 3px;
+
+  background: rgba(255, 255, 255, 0.5);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    width 0.3s ease;
+}
+
+.hero-indicators label:hover {
+  width: 45px;
+  background: var(--color-gold);
+}
+
+/* 수동 선택한 막대 강조 */
+
+.hero:has(#slide-manual-1:checked) .hero-indicators label[for="slide-manual-1"],
+.hero:has(#slide-manual-2:checked) .hero-indicators label[for="slide-manual-2"],
+.hero:has(#slide-manual-3:checked) .hero-indicators label[for="slide-manual-3"],
+.hero:has(#slide-manual-4:checked) .hero-indicators label[for="slide-manual-4"],
+.hero:has(#slide-manual-5:checked)
+  .hero-indicators
+  label[for="slide-manual-5"] {
+  width: 45px;
+  background: var(--color-gold);
+}
+
+/* 자동 재생 버튼 */
+
+.hero-play {
+  position: absolute;
+  z-index: 3;
+
+  bottom: 25px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  padding: 7px 15px;
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.hero-play:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* ========================================
+   5. 스크롤 안내
+======================================== */
+
+.scroll-guide {
+  position: absolute;
+  z-index: 3;
+
+  right: 45px;
+  bottom: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 12px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.scroll-icon {
+  position: relative;
+
+  display: block;
+
+  width: 17px;
+  height: 28px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+}
+
+.scroll-icon::before {
+  content: "";
+
+  position: absolute;
+  top: 5px;
+  left: 50%;
+
+  width: 2px;
+  height: 5px;
+
+  transform: translateX(-50%);
+
+  background: var(--color-gold);
+
+  animation: scroll-move 1.5s infinite;
+}
+
+@keyframes scroll-move {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 8px);
+  }
+}
+
+/* ========================================
+   6. 공통 콘텐츠
+======================================== */
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-subtitle {
+  margin-bottom: 18px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 4px;
+}
+
+/* ========================================
+   7. 숙소 소개
+======================================== */
 
 .introduction {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 100px 30px;
+  padding: 125px 30px;
 
-    text-align: center;
+  background: var(--color-ivory);
+
+  text-align: center;
+}
+
+.introduction .section-inner {
+  max-width: 950px;
 }
 
 .introduction h2 {
-    margin-bottom: 25px;
+  margin-bottom: 28px;
 
-    font-size: 32px;
-    color: var(--color-navy);
+  color: var(--color-navy);
+
+  font-size: 36px;
+  line-height: 1.5;
 }
 
-.introduction p {
-    max-width: 750px;
-    margin: 0 auto;
+.introduction-text {
+  color: #666666;
 
-    font-size: 17px;
-    color: var(--color-gray);
-    line-height: 2;
+  font-size: 16px;
+  line-height: 2.1;
 }
 
-/* =================================
-   3. 주요 특징
-================================= */
+.text-link {
+  display: inline-block;
+
+  margin-top: 30px;
+  padding-bottom: 7px;
+
+  color: var(--color-navy);
+
+  border-bottom: 1px solid var(--color-gold);
+
+  font-size: 14px;
+
+  transition: color 0.3s ease;
+}
+
+.text-link:hover {
+  color: var(--color-gold);
+}
+
+/* ========================================
+   8. OUR SPACE
+======================================== */
+
+.experience-section {
+  position: relative;
+
+  padding: 120px 30px;
+
+  background:
+    linear-gradient(rgba(10, 13, 20, 0.82), rgba(10, 13, 20, 0.88)),
+    url("../images/room_background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+}
+
+.experience-inner {
+  position: relative;
+  z-index: 1;
+
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.experience-heading {
+  margin-bottom: 85px;
+
+  text-align: center;
+}
+
+.experience-heading h2 {
+  margin-bottom: 18px;
+
+  color: #ffffff;
+
+  font-size: 35px;
+}
+
+.experience-heading > p:last-child {
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* 개별 소개 항목 */
+
+.experience-item {
+  display: flex;
+  align-items: center;
+
+  gap: 75px;
+
+  margin-bottom: 115px;
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+}
+
+.experience-reverse {
+  flex-direction: row-reverse;
+}
+
+/* 소개 이미지 */
+
+.experience-image {
+  position: relative;
+
+  flex: 1;
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+}
+
+.experience-image img {
+  display: block;
+
+  width: 100%;
+  height: 410px;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.experience-image:hover img {
+  transform: scale(1.04);
+}
+
+/* 소개 설명 */
+
+.experience-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.experience-text .experience-subtitle {
+  margin-bottom: 18px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.experience-text h2 {
+  margin-bottom: 25px;
+
+  color: #ffffff;
+
+  font-size: 34px;
+  line-height: 1.4;
+}
+
+.experience-text p:not(.experience-subtitle) {
+  color: rgba(255, 255, 255, 0.84);
+
+  font-size: 15px;
+  line-height: 2;
+}
+
+.experience-link {
+  display: inline-block;
+
+  margin-top: 27px;
+  padding-bottom: 7px;
+
+  color: var(--color-gold);
+
+  border-bottom: 1px solid var(--color-gold);
+
+  font-size: 14px;
+
+  transition: color 0.3s ease;
+}
+
+.experience-link:hover {
+  color: #ffffff;
+}
+
+/* ========================================
+   9. 주요 특징
+======================================== */
 
 .features {
-    padding: 90px 30px;
-    background-color: var(--color-ivory);
+  padding: 120px 30px;
 
-    text-align: center;
+  background: var(--color-ivory);
 }
 
-.features > h2 {
-    margin-bottom: 50px;
+.features-heading {
+  margin-bottom: 65px;
 
-    font-size: 32px;
-    color: var(--color-navy);
+  text-align: center;
 }
 
-.features article {
-    display: inline-block;
-    vertical-align: top;
+.features-heading h2 {
+  margin-bottom: 20px;
 
-    width: 28%;
-    min-height: 200px;
-    margin: 10px 1%;
+  color: var(--color-navy);
 
-    padding: 35px 25px;
-
-    background-color: var(--color-white);
-    border: 1px solid #e8e2d7;
-    border-radius: 8px;
-
-    transition: transform 0.3s, box-shadow 0.3s;
+  font-size: 36px;
 }
 
-.features article:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+.features-heading > p:last-child {
+  color: #777777;
+
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-.features article h3 {
-    margin-bottom: 18px;
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
-    font-size: 21px;
-    color: var(--color-navy);
+  gap: 30px;
 }
 
-.features article p {
-    font-size: 15px;
-    color: var(--color-gray);
-    line-height: 1.8;
+.feature-card {
+  padding: 40px 30px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 5px;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
-/* =================================
-   4. 태블릿 화면
-================================= */
+.feature-card:hover {
+  transform: translateY(-6px);
 
-@media (max-width: 768px) {
-
-    .hero {
-        min-height: 450px;
-        padding: 70px 20px;
-    }
-
-    .hero h2 {
-        font-size: 34px;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .introduction {
-        padding: 70px 25px;
-    }
-
-    .introduction h2,
-    .features > h2 {
-        font-size: 27px;
-    }
-
-    .features {
-        padding: 70px 20px;
-    }
-
-    .features article {
-        width: 45%;
-        margin: 10px 1%;
-    }
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* =================================
-   5. 모바일 화면
-================================= */
+.feature-number {
+  margin-bottom: 25px;
 
-@media (max-width: 480px) {
+  color: var(--color-gold);
 
-    .hero {
-        min-height: 380px;
-    }
-
-    .hero h2 {
-        font-size: 28px;
-    }
-
-    .hero p {
-        font-size: 14px;
-    }
-
-    .introduction h2,
-    .features > h2 {
-        font-size: 24px;
-    }
-
-    .introduction p {
-        font-size: 15px;
-    }
-
-    .features article {
-        width: 100%;
-        margin: 10px 0;
-        min-height: auto;
-    }
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 35px;
 }
 
-/* 홈 화면 대표 이미지 */
-.hero-image {
-  display: block;
-  width: 100%;
-  max-width: 1100px;
-  height: auto;
-  max-height: 480px;
-  object-fit: contain;
-  margin: 30px auto;
-  border-radius: 16px;
-}
-/* 메인 객실 둘러보기 버튼 */
-.hero-button {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 16px 36px;
+.feature-card h3 {
+  margin-bottom: 18px;
 
-    background-color: var(--color-gold);
-    color: var(--color-navy);
+  color: var(--color-navy);
 
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-
-    border-radius: 6px;
-    transition: all 0.3s ease;
+  font-size: 21px;
 }
 
-/* 마우스를 올렸을 때 */
-.hero-button:hover {
-    background-color: var(--color-white);
-    color: var(--color-navy);
-    transform: translateY(-3px);
+.feature-card p {
+  color: #777777;
+
+  font-size: 14px;
+  line-height: 1.9;
 }
 
-/* 키보드로 버튼을 선택했을 때 */
-.hero-button:focus-visible {
-    outline: 3px solid var(--color-white);
-    outline-offset: 4px;
-}
+/* ========================================
+   10. 하단 예약 및 문의
+======================================== */
 
-/* 메인 페이지 하단 안내 영역 */
 .home-contact {
-    padding: 70px 20px;
-    margin-top: 50px;
-    text-align: center;
-    background-color: var(--color-navy);
-    color: var(--color-white);
+  padding: 115px 30px;
+
+  background:
+    linear-gradient(rgba(10, 15, 25, 0.78), rgba(10, 15, 25, 0.88)),
+    url("../images/exterior.png");
+
+  background-size: cover;
+  background-position: center;
+
+  text-align: center;
+}
+
+.home-contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .home-contact h2 {
-    font-size: 28px;
-    margin-bottom: 18px;
+  margin-bottom: 20px;
+
+  color: #ffffff;
+
+  font-size: 35px;
 }
 
-.home-contact p {
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 30px;
+.home-contact p:not(.section-subtitle) {
+  margin-bottom: 30px;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-.home-contact-buttons {
+.contact-link {
+  display: inline-block;
+
+  padding: 16px 40px;
+
+  color: var(--color-dark);
+
+  background: var(--color-gold);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: background 0.3s ease;
+}
+
+.contact-link:hover {
+  background: #e0c18b;
+}
+
+/* ========================================
+   11. 모바일 및 태블릿
+======================================== */
+
+@media (max-width: 1050px) {
+  .home-page .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .home-page .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+
+  .experience-item {
+    gap: 45px;
+  }
+
+  .experience-image img {
+    height: 350px;
+  }
+}
+
+/* ========================================
+   12. 모바일 화면
+======================================== */
+
+@media (max-width: 768px) {
+  /* 모바일 상단 메뉴 */
+
+  .home-page .header-inner {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
+
+    min-height: 70px;
+
+    padding: 0 22px;
+  }
+
+  .home-page .logo {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  .home-page .menu-toggle {
+    display: none;
+  }
+
+  .home-page .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
     display: flex;
-    justify-content: center;
-    gap: 18px;
-    flex-wrap: wrap;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .home-page .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-gold);
+
+    border-radius: 2px;
+  }
+
+  .home-page .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+  }
+
+  .home-page .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .home-page .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .home-page .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .home-page .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
+    text-align: center;
+  }
+
+  .home-page .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* 메인 화면 */
+
+  .hero {
+    height: 100svh;
+    min-height: 620px;
+  }
+
+  .hero-content {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 18px;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 20px;
+
+    font-size: clamp(38px, 9vw, 55px);
+    letter-spacing: 1px;
+  }
+
+  .hero-slogan {
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-indicators {
+    bottom: 75px;
+
+    gap: 8px;
+  }
+
+  .hero-indicators label {
+    width: 23px;
+  }
+
+  .hero-indicators label:hover {
+    width: 30px;
+  }
+
+  .hero:has(#slide-manual-1:checked)
+    .hero-indicators
+    label[for="slide-manual-1"],
+  .hero:has(#slide-manual-2:checked)
+    .hero-indicators
+    label[for="slide-manual-2"],
+  .hero:has(#slide-manual-3:checked)
+    .hero-indicators
+    label[for="slide-manual-3"],
+  .hero:has(#slide-manual-4:checked)
+    .hero-indicators
+    label[for="slide-manual-4"],
+  .hero:has(#slide-manual-5:checked)
+    .hero-indicators
+    label[for="slide-manual-5"] {
+    width: 30px;
+  }
+
+  .hero-play {
+    bottom: 40px;
+    font-size: 9px;
+  }
+
+  .scroll-guide {
+    right: 15px;
+    bottom: 18px;
+
+    font-size: 8px;
+  }
+
+  /* 숙소 소개 */
+
+  .introduction {
+    padding: 85px 22px;
+  }
+
+  .introduction h2 {
+    font-size: 28px;
+  }
+
+  .introduction-text {
+    font-size: 14px;
+  }
+
+  /* OUR SPACE */
+
+  .experience-section {
+    padding: 85px 22px;
+
+    background-attachment: scroll;
+  }
+
+  .experience-heading {
+    margin-bottom: 55px;
+  }
+
+  .experience-heading h2 {
+    font-size: 27px;
+  }
+
+  .experience-heading > p:last-child {
+    font-size: 13px;
+  }
+
+  .experience-item,
+  .experience-reverse {
+    flex-direction: column;
+
+    gap: 30px;
+
+    margin-bottom: 75px;
+  }
+
+  .experience-image,
+  .experience-text {
+    width: 100%;
+    flex: auto;
+  }
+
+  .experience-image img {
+    height: 280px;
+  }
+
+  .experience-text h2 {
+    font-size: 27px;
+  }
+
+  .experience-text p:not(.experience-subtitle) {
+    font-size: 14px;
+  }
+
+  /* 주요 특징 */
+
+  .features {
+    padding: 85px 22px;
+  }
+
+  .features-heading {
+    margin-bottom: 40px;
+  }
+
+  .features-heading h2 {
+    font-size: 28px;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .feature-card {
+    padding: 30px 25px;
+  }
+
+  /* 하단 문의 */
+
+  .home-contact {
+    padding: 85px 22px;
+  }
+
+  .home-contact h2 {
+    font-size: 27px;
+  }
 }
 
-.home-contact-button {
-    display: inline-block;
-    padding: 14px 30px;
-    background-color: var(--color-gold);
-    color: var(--color-navy);
-    font-size: 17px;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-}
+/* ========================================
+   13. 작은 모바일 화면
+======================================== */
 
-.home-contact-button:hover {
-    background-color: var(--color-white);
-    transform: translateY(-3px);
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 35px;
+  }
+
+  .hero-slogan {
+    font-size: 16px;
+  }
+
+  .hero-description {
+    font-size: 12px;
+  }
+
+  .experience-image img {
+    height: 230px;
+  }
+
+  .experience-text h2 {
+    font-size: 24px;
+  }
+
+  .hero-indicators {
+    gap: 7px;
+  }
+
+  .hero-indicators label {
+    width: 18px;
+  }
 }

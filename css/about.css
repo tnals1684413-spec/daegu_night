@@ -1,235 +1,1299 @@
+/* =========================================
+   소개 페이지 기본 설정
+========================================= */
 
-/* 상단 소개 영역 */
-
-.about-hero {
-    padding: 100px 20px;
-    text-align: center;
-    color: var(--color-white);
-    background: linear-gradient(135deg, #263b58, #101722);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-.about-hero p:first-child {
-    margin-bottom: 15px;
-    color: var(--color-gold);
-    font-weight: bold;
-    letter-spacing: 4px;
+.about-page {
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-ivory);
+}
+
+/* =========================================
+   1. 상단 헤더
+   HOME / ROOMS 페이지와 동일한 디자인
+========================================= */
+
+.about-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  background: rgba(10, 15, 25, 0.48);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.about-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+.about-page .logo {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  white-space: nowrap;
+}
+
+.about-page .site-nav {
+  margin-left: auto;
+}
+
+.about-page .site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0;
+}
+
+.about-page .site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.about-page .site-nav li:last-child {
+  border-right: none;
+}
+
+.about-page .site-nav a {
+  display: inline-grid;
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+.about-page .site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+.about-page .site-nav .nav-en {
+  opacity: 1;
+}
+
+.about-page .site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+.about-page .site-nav a:hover .nav-en,
+.about-page .site-nav a:focus-visible .nav-en {
+  opacity: 0;
+}
+
+.about-page .site-nav a:hover .nav-ko,
+.about-page .site-nav a:focus-visible .nav-ko {
+  opacity: 1;
+}
+
+.about-page .site-nav a:hover {
+  color: var(--color-gold);
+}
+
+.about-page .menu-toggle,
+.about-page .menu-icon {
+  display: none;
+}
+
+/* =========================================
+   2. 메인 배너
+========================================= */
+
+.about-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 760px;
+  padding: 150px 20px 120px;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image:
+    linear-gradient(rgba(8, 13, 22, 0.55), rgba(8, 13, 22, 0.72)),
+    url("../images/lounge.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  display: block;
+
+  margin-bottom: 24px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 5px;
 }
 
 .about-hero h1 {
-    margin-bottom: 20px;
-    font-size: 40px;
+  margin: 0 0 25px;
+
+  color: var(--color-white);
+
+  font-size: clamp(52px, 8vw, 92px);
+  font-weight: 700;
+  letter-spacing: 7px;
 }
 
-.about-hero p:last-child {
-    color: var(--color-ivory);
+.hero-divider {
+  width: 65px;
+  height: 2px;
+
+  margin: 0 auto 28px;
+
+  background-color: var(--color-gold);
 }
 
-/* 브랜드 이야기 */
+.hero-description {
+  margin-bottom: 40px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 17px;
+  line-height: 2;
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 16px 38px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-button:hover {
+  background: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-3px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.scroll-line {
+  display: block;
+
+  width: 1px;
+  height: 40px;
+
+  background: var(--color-gold);
+}
+
+/* =========================================
+   3. 공통 소제목
+========================================= */
+
+.section-subtitle {
+  display: block;
+
+  margin-bottom: 17px;
+
+  color: var(--color-gold);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+/* =========================================
+   4. 브랜드 이야기
+========================================= */
 
 .brand-story {
-    max-width: 1150px;
-    margin: 0 auto;
-    padding: 100px 30px;
+  display: grid;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 85px;
+
+  max-width: 1300px;
+  margin: 0 auto;
+
+  padding: 125px 40px;
 }
 
-.story-text > span,
-.facility-heading > span {
-    color: var(--color-gold);
-    font-weight: bold;
-    letter-spacing: 3px;
+/* 브랜드 이미지 */
+
+.story-visual {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 480px;
+
+  background-color: var(--color-navy);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.13);
+}
+
+.story-visual img {
+  display: block;
+
+  width: 100%;
+  height: 480px;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.story-visual:hover img {
+  transform: scale(1.05);
+}
+
+.story-image-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: 45px 30px 28px;
+
+  color: var(--color-white);
+
+  background: linear-gradient(transparent, rgba(10, 15, 25, 0.9));
+}
+
+.story-image-caption span {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--color-gold);
+
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.story-image-caption p {
+  margin: 0;
+
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+/* 브랜드 소개 글 */
+
+.story-text {
+  padding: 15px 0;
 }
 
 .story-text h2 {
-    margin: 15px 0 25px;
-    color: var(--color-navy);
-    font-size: 30px;
+  margin: 15px 0 25px;
+
+  color: var(--color-navy);
+
+  font-size: 42px;
+  line-height: 1.5;
 }
 
-.story-text p {
-    margin-bottom: 18px;
-    color: var(--color-gray);
-    line-height: 2;
+.story-line {
+  width: 55px;
+  height: 2px;
+
+  margin-bottom: 30px;
+
+  background-color: var(--color-gold);
 }
 
-/* 임시 브랜드 이미지 영역 */
+.story-text > p {
+  margin-bottom: 20px;
 
-.story-visual {
-    min-height: 350px;
-    border-radius: 8px;
+  color: #696969;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(rgba(16, 23, 34, 0.35), rgba(16, 23, 34, 0.65)),
-        linear-gradient(135deg, #b59c7a, #263b58);
-
-    color: var(--color-gold);
-    font-size: 28px;
-    font-weight: bold;
-    letter-spacing: 3px;
+  font-size: 15px;
+  line-height: 2.1;
 }
 
-/* 층별 시설 */
+/* 브랜드 철학 */
+
+.story-highlight {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: 38px;
+  padding: 5px 0 5px 22px;
+
+  border-left: 3px solid var(--color-gold);
+}
+
+.story-highlight span {
+  color: var(--color-gold);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.story-highlight strong {
+  color: var(--color-navy);
+
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   5. 브랜드 특징
+========================================= */
+
+.brand-features {
+  padding: 115px 7% 125px;
+
+  background-color: #eeece6;
+}
+
+.section-heading {
+  max-width: 800px;
+  margin: 0 auto 65px;
+
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 12px 0 20px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.section-heading > p {
+  color: var(--color-gray);
+
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* 특징 카드 */
+
+.feature-list {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  position: relative;
+
+  min-height: 250px;
+  padding: 35px 28px;
+
+  background-color: var(--color-white);
+
+  border: 1px solid rgba(23, 36, 58, 0.07);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.035);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(198, 165, 107, 0.7);
+
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.09);
+}
+
+.feature-number {
+  display: block;
+
+  color: var(--color-gold);
+
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.feature-line {
+  width: 35px;
+  height: 2px;
+
+  margin: 22px 0;
+
+  background-color: var(--color-gold);
+}
+
+.feature-card h3 {
+  margin-bottom: 16px;
+
+  color: var(--color-navy);
+
+  font-size: 19px;
+}
+
+.feature-card p {
+  margin: 0;
+
+  color: var(--color-gray);
+
+  font-size: 13px;
+  line-height: 2;
+}
+
+/* =========================================
+   6. 층별 시설 안내
+========================================= */
 
 .facility-section {
-    padding: 90px 30px;
-    background-color: var(--color-ivory);
+  padding: 125px 7% 135px;
+
+  background-color: var(--color-ivory);
 }
 
 .facility-heading {
-    margin-bottom: 50px;
-    text-align: center;
+  margin-bottom: 75px;
+
+  text-align: center;
 }
 
 .facility-heading h2 {
-    margin: 12px 0;
-    color: var(--color-navy);
-    font-size: 32px;
+  margin: 12px 0 20px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
 }
 
 .facility-heading p {
-    color: var(--color-gray);
+  color: var(--color-gray);
+
+  font-size: 15px;
+  line-height: 1.9;
 }
+
+/* 층별 카드 목록 */
 
 .facility-list {
-    max-width: 1000px;
-    margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
-.facility-card {
-    display: flex;
-    gap: 25px;
-    padding: 30px;
+/* 층별 개별 카드 */
 
-    background-color: var(--color-white);
-    border: 1px solid #e8e2d7;
-    border-radius: 8px;
+.facility-card {
+  display: grid;
+
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  min-height: 390px;
+
+  background-color: var(--color-white);
+
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.055);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+/* 홀수와 짝수 카드 이미지 위치 교차 */
+
+.facility-card:nth-child(even) {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.facility-card:nth-child(even) .facility-image {
+  order: 2;
+}
+
+.facility-card:nth-child(even) .facility-content {
+  order: 1;
+}
+
+/* 시설 이미지 */
+
+.facility-image {
+  position: relative;
+  overflow: hidden;
+
+  min-height: 390px;
+
+  background-color: #d9d9d9;
+}
+
+.facility-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  min-height: 390px;
+
+  object-fit: cover;
+
+  transition: transform 0.7s ease;
+}
+
+.facility-card:hover .facility-image img {
+  transform: scale(1.05);
+}
+
+.facility-image-number {
+  position: absolute;
+  top: 22px;
+  left: 25px;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  font-size: 42px;
+  font-weight: 700;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 시설 설명 */
+
+.facility-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 45px 45px;
 }
 
 .facility-number {
-    flex-shrink: 0;
-    color: var(--color-gold);
-    font-size: 28px;
-    font-weight: bold;
+  display: block;
+
+  margin-bottom: 16px;
+
+  color: var(--color-gold);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
 }
 
-.facility-card h3 {
-    margin-bottom: 15px;
-    color: var(--color-navy);
-    font-size: 19px;
+.facility-content h3 {
+  margin: 0 0 12px;
+
+  color: var(--color-navy);
+
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-.facility-card p {
-    margin-bottom: 15px;
-    color: var(--color-gray);
-    font-size: 14px;
-    line-height: 1.8;
+.facility-content h4 {
+  margin: 0 0 22px;
+
+  color: #a38a60;
+
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.facility-card ul {
-    padding-left: 18px;
-    list-style: disc;
+.facility-description {
+  margin-bottom: 22px;
+
+  color: var(--color-gray);
+
+  font-size: 13px;
+  line-height: 2;
 }
 
-.facility-card li {
-    margin-bottom: 7px;
-    color: var(--color-dark);
-    font-size: 14px;
+.facility-content ul {
+  padding: 20px 0 0 18px;
+
+  border-top: 1px solid #eeeeee;
+
+  list-style: disc;
 }
 
-/* 브랜드 약속 */
+.facility-content li {
+  margin-bottom: 9px;
+
+  color: var(--color-dark);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   7. 브랜드 약속
+========================================= */
 
 .brand-promise {
-    padding: 90px 25px;
-    text-align: center;
-    background-color: var(--color-navy);
-    color: var(--color-white);
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 430px;
+  padding: 110px 20px;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image:
+    linear-gradient(rgba(12, 20, 32, 0.78), rgba(12, 20, 32, 0.88)),
+    url("../images/daegu-night.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.brand-promise-content {
+  max-width: 850px;
+  margin: 0 auto;
 }
 
 .brand-promise h2 {
-    margin-bottom: 20px;
-    color: var(--color-gold);
-    font-size: 30px;
+  margin: 15px 0 25px;
+
+  color: var(--color-white);
+
+  font-size: 38px;
 }
 
-.brand-promise p {
-    line-height: 1.9;
+.promise-divider {
+  width: 55px;
+  height: 2px;
+
+  margin: 0 auto 30px;
+
+  background-color: var(--color-gold);
 }
 
-/* 태블릿 */
+.brand-promise-content > p {
+  margin-bottom: 15px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 15px;
+  line-height: 2;
+}
+
+.brand-promise-content .promise-highlight {
+  margin-top: 25px;
+  margin-bottom: 38px;
+
+  color: var(--color-gold);
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* 예약 버튼 */
+
+.promise-button {
+  display: inline-block;
+
+  padding: 16px 42px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.promise-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   8. 하단 푸터
+========================================= */
+
+.about-page .site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.about-page .footer-inner {
+  padding: 60px 20px;
+
+  text-align: center;
+}
+
+.about-page .footer-logo {
+  margin-bottom: 18px;
+
+  color: var(--color-gold);
+
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.about-page .footer-inner p {
+  margin-bottom: 13px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.about-page .footer-inner .footer-copy {
+  margin-top: 20px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+}
+
+/* =========================================
+   9. 스크롤 애니메이션
+   JavaScript 사용하지 않음
+========================================= */
+
+@supports (animation-timeline: view()) {
+  .story-visual,
+  .story-text,
+  .feature-card,
+  .facility-card {
+    animation: aboutReveal linear both;
+
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  @keyframes aboutReveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* =========================================
+   10. 태블릿 헤더
+   HOME / ROOMS와 동일한 설정
+========================================= */
+
+@media (max-width: 1050px) {
+  .about-page .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .about-page .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   11. 태블릿 콘텐츠
+========================================= */
+
+@media (max-width: 1000px) {
+  .brand-story {
+    gap: 45px;
+    padding: 100px 30px;
+  }
+
+  .story-text h2 {
+    font-size: 35px;
+  }
+
+  .feature-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .facility-content {
+    padding: 35px 30px;
+  }
+
+  .facility-content h3 {
+    font-size: 22px;
+  }
+}
+
+/* =========================================
+   12. 모바일 헤더
+   HOME / ROOMS와 동일한 설정
+========================================= */
 
 @media (max-width: 768px) {
-    .brand-story {
-        grid-template-columns: 1fr;
-        padding: 70px 25px;
-        gap: 30px;
-    }
+  /* 모바일 헤더 */
 
-    .story-visual {
-        min-height: 280px;
-    }
+  .about-page .header-inner {
+    display: grid;
 
-    .facility-list {
-        grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
 
-    .about-hero h1 {
-        font-size: 32px;
-    }
+    min-height: 70px;
+
+    padding: 0 22px;
+  }
+
+  .about-page .logo {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  /* 모바일 메뉴 버튼 */
+
+  .about-page .menu-toggle {
+    display: none;
+  }
+
+  .about-page .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
+    display: flex;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .about-page .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-gold);
+
+    border-radius: 2px;
+  }
+
+  /* 모바일 내비게이션 */
+
+  .about-page .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .about-page .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .about-page .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .about-page .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .about-page .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
+    text-align: center;
+  }
+
+  .about-page .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* 메인 배너 */
+
+  .about-hero {
+    min-height: 650px;
+    padding: 130px 20px 100px;
+  }
+
+  .about-hero h1 {
+    font-size: 55px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  /* 브랜드 이야기 */
+
+  .brand-story {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 85px 25px;
+  }
+
+  .story-visual {
+    min-height: 350px;
+  }
+
+  .story-visual img {
+    height: 350px;
+  }
+
+  .story-text h2 {
+    font-size: 33px;
+  }
+
+  /* 브랜드 특징 */
+
+  .brand-features {
+    padding: 85px 6%;
+  }
+
+  .section-heading h2,
+  .facility-heading h2 {
+    font-size: 30px;
+  }
+
+  /* 층별 시설 */
+
+  .facility-section {
+    padding: 85px 6%;
+  }
+
+  .facility-list {
+    gap: 30px;
+  }
+
+  .facility-card,
+  .facility-card:nth-child(even) {
+    grid-template-columns: 1fr;
+  }
+
+  .facility-card:nth-child(even) .facility-image,
+  .facility-card:nth-child(even) .facility-content {
+    order: initial;
+  }
+
+  .facility-image,
+  .facility-image img {
+    min-height: 300px;
+    height: 300px;
+  }
+
+  .facility-content {
+    padding: 32px 28px;
+  }
+
+  .facility-description {
+    min-height: auto;
+  }
+
+  /* 브랜드 약속 */
+
+  .brand-promise {
+    min-height: 400px;
+    padding: 90px 20px;
+  }
+
+  .brand-promise h2 {
+    font-size: 31px;
+  }
 }
 
-/* 모바일 */
+/* =========================================
+   13. 작은 모바일 화면
+========================================= */
 
-@media (max-width: 480px) {
-    .about-hero {
-        padding: 75px 20px;
-    }
+@media (max-width: 550px) {
+  .about-hero {
+    min-height: 580px;
+  }
 
-    .about-hero h1 {
-        font-size: 27px;
-    }
+  .about-hero h1 {
+    font-size: 43px;
+    letter-spacing: 3px;
+  }
 
-    .story-text h2,
-    .facility-heading h2 {
-        font-size: 25px;
-    }
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
 
-    .facility-section {
-        padding: 65px 18px;
-    }
+  .hero-description {
+    font-size: 14px;
+  }
 
-    .facility-card {
-        padding: 22px 18px;
-        gap: 15px;
-    }
+  .hero-button {
+    padding: 14px 25px;
+    font-size: 11px;
+  }
 
-    .facility-number {
-        font-size: 23px;
-    }
+  /* 브랜드 이야기 */
 
-    .brand-promise h2 {
-        font-size: 25px;
-    }
+  .brand-story {
+    padding: 75px 20px;
+  }
+
+  .story-visual,
+  .story-visual img {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .story-text h2 {
+    font-size: 29px;
+  }
+
+  .story-text > p {
+    font-size: 13px;
+  }
+
+  .story-highlight strong {
+    font-size: 15px;
+  }
+
+  /* 브랜드 특징 */
+
+  .brand-features {
+    padding: 75px 20px;
+  }
+
+  .section-heading h2,
+  .facility-heading h2 {
+    font-size: 26px;
+  }
+
+  .section-heading > p,
+  .facility-heading p {
+    font-size: 13px;
+  }
+
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .feature-card {
+    min-height: auto;
+    padding: 30px 25px;
+  }
+
+  .feature-number {
+    font-size: 31px;
+  }
+
+  .feature-card h3 {
+    font-size: 18px;
+  }
+
+  /* 층별 시설 */
+
+  .facility-section {
+    padding: 75px 20px;
+  }
+
+  .facility-heading {
+    margin-bottom: 45px;
+  }
+
+  .facility-image,
+  .facility-image img {
+    min-height: 220px;
+    height: 220px;
+  }
+
+  .facility-content {
+    padding: 26px 21px;
+  }
+
+  .facility-content h3 {
+    font-size: 19px;
+  }
+
+  .facility-content h4 {
+    font-size: 13px;
+  }
+
+  .facility-description {
+    font-size: 12px;
+  }
+
+  .facility-content li {
+    font-size: 12px;
+  }
+
+  /* 브랜드 약속 */
+
+  .brand-promise {
+    min-height: 350px;
+    padding: 80px 20px;
+  }
+
+  .brand-promise h2 {
+    font-size: 25px;
+  }
+
+  .brand-promise-content > p {
+    font-size: 13px;
+  }
+
+  .brand-promise-content .promise-highlight {
+    font-size: 14px;
+  }
+
+  .promise-button {
+    padding: 14px 32px;
+  }
+
+  /* 푸터 */
+
+  .about-page .footer-inner {
+    padding: 45px 20px;
+  }
 }
 
-/* 1층 공용 라운지 사진 */
-.lounge-image {
-  display: block;
-  width: 100%;
-  max-width: 850px;
-  height: auto;
-  margin: 25px auto;
-  border-radius: 14px;
-  object-fit: contain;
+/* =========================================
+   14. 움직임 최소화 설정
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .story-visual img,
+  .feature-card,
+  .facility-card,
+  .facility-image img,
+  .hero-button,
+  .promise-button {
+    animation: none !important;
+    transition: none !important;
+  }
 }

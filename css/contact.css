@@ -1,273 +1,1363 @@
+/* =========================================
+   예약 및 문의 페이지 기본 설정
+========================================= */
 
-/* 페이지 제목 */
-
-.contact-hero {
-    padding: 90px 20px;
-    text-align: center;
-    color: var(--color-white);
-    background: linear-gradient(135deg, #263b58, #101722);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-.contact-hero span,
-.contact-info-heading span {
-    color: var(--color-gold);
-    font-weight: bold;
-    letter-spacing: 3px;
+.contact-page {
+  margin: 0;
+  padding: 0;
+
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-ivory);
+}
+
+/* =========================================
+   상단 헤더
+   HOME / ROOMS / LOUNGE / LOCATION과 동일
+========================================= */
+
+.contact-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  background: rgba(10, 15, 25, 0.48);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* PC 헤더 전체 */
+
+.contact-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
+}
+
+/* 로고 */
+
+.contact-page .logo {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+/* 메뉴 */
+
+.contact-page .site-nav {
+  margin-left: auto;
+}
+
+.contact-page .site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0;
+}
+
+.contact-page .site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.contact-page .site-nav li:last-child {
+  border-right: none;
+}
+
+.contact-page .site-nav a {
+  display: inline-grid;
+
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+.contact-page .site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+/* 기본 영어 표시 */
+
+.contact-page .site-nav .nav-en {
+  opacity: 1;
+}
+
+/* 기본 한국어 숨김 */
+
+.contact-page .site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+/* 마우스 및 키보드 선택 시 영어 숨김 */
+
+.contact-page .site-nav a:hover .nav-en,
+.contact-page .site-nav a:focus-visible .nav-en {
+  opacity: 0;
+}
+
+/* 마우스 및 키보드 선택 시 한국어 표시 */
+
+.contact-page .site-nav a:hover .nav-ko,
+.contact-page .site-nav a:focus-visible .nav-ko {
+  opacity: 1;
+}
+
+.contact-page .site-nav a:hover {
+  color: var(--color-gold);
+}
+
+/* PC에서는 햄버거 메뉴 숨김 */
+
+.contact-page .menu-toggle,
+.contact-page .menu-icon {
+  display: none;
+}
+
+/* =========================================
+   메인 배너
+========================================= */
+
+.contact-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 760px;
+  padding: 150px 20px 120px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image: url("../images/daegu-night.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(8, 13, 22, 0.55), rgba(8, 13, 22, 0.78));
+}
+
+.contact-hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  display: block;
+
+  margin-bottom: 25px;
+
+  color: var(--color-gold);
+
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 5px;
 }
 
 .contact-hero h1 {
-    margin: 15px 0;
-    font-size: 38px;
+  margin: 0 0 25px;
+
+  color: var(--color-white);
+
+  font-size: clamp(48px, 8vw, 92px);
+  font-weight: 700;
+  letter-spacing: 6px;
 }
 
-.contact-hero p {
-    color: var(--color-ivory);
+.hero-divider {
+  display: block;
+
+  width: 65px;
+  height: 2px;
+
+  margin: 0 auto 28px;
+
+  background-color: var(--color-gold);
 }
 
-/* 예약 문의 영역 */
+.contact-hero-content > p {
+  margin-bottom: 42px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 16px;
+  line-height: 2;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 16px 35px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.hero-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-4px);
+}
+
+.hero-button span {
+  font-size: 17px;
+}
+
+/* 스크롤 안내 */
+
+.hero-scroll {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.scroll-line {
+  display: block;
+
+  width: 1px;
+  height: 40px;
+
+  background-color: var(--color-gold);
+}
+
+/* =========================================
+   공통 소제목
+========================================= */
+
+.section-subtitle {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+/* =========================================
+   예약 문의 영역
+========================================= */
 
 .reservation-section {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 85px 30px;
+  max-width: 1050px;
+  margin: 0 auto;
+
+  padding: 120px 30px;
+
+  box-sizing: border-box;
 }
 
 .reservation-heading {
-    margin-bottom: 40px;
-    text-align: center;
+  margin-bottom: 55px;
+
+  text-align: center;
 }
 
 .reservation-heading h2 {
-    margin-bottom: 12px;
-    color: var(--color-navy);
-    font-size: 30px;
+  margin: 12px 0 20px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
 }
 
 .reservation-heading p {
-    color: var(--color-gray);
+  color: var(--color-gray);
+
+  font-size: 14px;
+  line-height: 2;
 }
 
-/* 입력 양식 */
+/* =========================================
+   예약 양식 카드
+========================================= */
 
 .reservation-form {
-    padding: 40px;
-    background-color: var(--color-ivory);
-    border-radius: 10px;
+  box-sizing: border-box;
+
+  width: 100%;
+  padding: 55px 60px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e8e3d9;
+  border-radius: 5px;
+
+  box-shadow: 0 15px 40px rgba(16, 23, 34, 0.07);
 }
 
+/* 양식 상단 제목 */
+
+.form-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 32px;
+}
+
+.form-label-top {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-gold);
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.form-top h3 {
+  margin: 0;
+
+  color: var(--color-navy);
+
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.form-top > p {
+  margin: 0;
+
+  color: var(--color-gray);
+
+  font-size: 12px;
+}
+
+.required-mark {
+  color: #b47d45;
+  font-weight: 700;
+}
+
+/* =========================================
+   입력 항목
+========================================= */
+
 .form-group {
-    margin-bottom: 25px;
+  margin-bottom: 27px;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--color-navy);
-    font-weight: bold;
+  display: block;
+
+  margin-bottom: 11px;
+
+  color: var(--color-navy);
+
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d8d2c7;
-    border-radius: 5px;
-    background-color: var(--color-white);
-    font-family: inherit;
-    font-size: 15px;
+  box-sizing: border-box;
+
+  display: block;
+
+  width: 100%;
+  min-height: 54px;
+
+  padding: 15px 18px;
+
+  border: 1px solid #ded9cf;
+  border-radius: 3px;
+
+  background-color: #faf9f6;
+
+  color: var(--color-dark);
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.form-group textarea {
-    resize: vertical;
-}
+/* 입력창 마우스 오버 */
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: 2px solid var(--color-gold);
-    border-color: var(--color-gold);
-}
-
-.form-notice {
-    margin-bottom: 20px;
-    color: var(--color-gray);
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-/* 제출 버튼 */
-
-.submit-btn {
-    width: 100%;
-    padding: 16px;
-    border: none;
-    border-radius: 5px;
-
-    background-color: var(--color-navy);
-    color: var(--color-white);
-
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: var(--color-gold);
-}
-
-/* 연락처 정보 */
-
-.contact-info-section {
-    padding: 85px 30px;
-    background-color: var(--color-ivory);
-}
-
-.contact-info-heading {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.contact-info-heading h2 {
-    margin-top: 12px;
-    color: var(--color-navy);
-    font-size: 30px;
-}
-
-.contact-info-grid {
-    max-width: 1100px;
-    margin: 0 auto;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.contact-info-grid article {
-    padding: 30px 20px;
-    text-align: center;
-    background-color: var(--color-white);
-    border-radius: 8px;
-}
-
-.contact-info-grid h3 {
-    margin-bottom: 15px;
-    color: var(--color-gold);
-    letter-spacing: 2px;
-}
-
-.contact-info-grid p {
-    margin-bottom: 10px;
-    color: var(--color-navy);
-    font-weight: bold;
-}
-
-.contact-info-grid span {
-    color: var(--color-gray);
-    font-size: 13px;
-}
-
-/* 태블릿 */
-
-@media (max-width: 768px) {
-    .contact-info-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-hero h1 {
-        font-size: 31px;
-    }
-}
-
-/* 모바일 */
-
-@media (max-width: 480px) {
-    .contact-hero {
-        padding: 70px 20px;
-    }
-
-    .contact-hero h1 {
-        font-size: 26px;
-    }
-
-    .reservation-section {
-        padding: 65px 20px;
-    }
-
-    .reservation-form {
-        padding: 25px 18px;
-    }
-
-    .reservation-heading h2,
-    .contact-info-heading h2 {
-        font-size: 25px;
-    }
-
-    .contact-info-section {
-        padding: 65px 20px;
-    }
-}
-
-/* 예약 문의 양식 디자인 개선 */
-
-/* 문의 양식 카드 */
-.reservation-form {
-    box-shadow: 0 12px 35px rgba(16, 23, 34, 0.08);
-}
-
-/* 입력창 공통 디자인 */
-.form-group input,
-.form-group select,
-.form-group textarea {
-    box-sizing: border-box;
-    min-height: 50px;
-    border: 1px solid #d8d2c7;
-    border-radius: 8px;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-/* 마우스를 올렸을 때 */
 .form-group input:hover,
 .form-group select:hover,
 .form-group textarea:hover {
-    border-color: var(--color-gold);
+  border-color: var(--color-gold);
 }
 
-/* 입력 중일 때 */
+/* 입력창 포커스 */
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    outline: none;
-    border-color: var(--color-gold);
-    box-shadow: 0 0 0 3px rgba(198, 165, 107, 0.18);
+  outline: none;
+
+  border-color: var(--color-gold);
+
+  background-color: #ffffff;
+
+  box-shadow: 0 0 0 3px rgba(198, 165, 107, 0.15);
 }
 
-/* 문의 버튼 개선 */
+/* 입력창 안내 문구 */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #aaa59b;
+}
+
+.form-group textarea {
+  min-height: 160px;
+
+  resize: vertical;
+
+  line-height: 1.8;
+}
+
+/* 선택창 디자인 */
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+
+  padding-right: 50px;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2317243a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 날짜 입력창 */
+
+.form-group input[type="date"] {
+  padding-right: 18px;
+
+  cursor: pointer;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator {
+  width: 17px;
+  height: 17px;
+
+  margin-right: 2px;
+
+  cursor: pointer;
+}
+
+/* 입력 항목 설명 */
+
+.field-description {
+  display: block;
+
+  margin-top: 9px;
+
+  color: var(--color-gray);
+
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   정보 구분선
+========================================= */
+
+.form-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 45px 0;
+
+  background-color: #e8e3d9;
+}
+
+.room-form-top {
+  margin-bottom: 32px;
+}
+
+/* =========================================
+   예약 양식 안내
+========================================= */
+
+.form-notice {
+  margin: 35px 0 25px;
+  padding: 20px 22px;
+
+  background-color: #f5f1e8;
+
+  border-left: 3px solid var(--color-gold);
+}
+
+.notice-title {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.form-notice p {
+  margin: 0 0 7px;
+
+  color: var(--color-gray);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.form-notice p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================================
+   제출 버튼
+========================================= */
+
 .submit-btn {
-    min-height: 54px;
-    border: 1px solid var(--color-navy);
-    border-radius: 8px;
-    letter-spacing: 1px;
-    transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  width: 100%;
+  min-height: 58px;
+
+  padding: 16px 20px;
+
+  border: 1px solid var(--color-navy);
+  border-radius: 3px;
+
+  background-color: var(--color-navy);
+  color: var(--color-white);
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* 버튼에 마우스를 올렸을 때 */
+.submit-btn span {
+  font-size: 17px;
+}
+
 .submit-btn:hover {
-    background-color: var(--color-gold);
-    color: var(--color-navy);
-    border-color: var(--color-gold);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(16, 23, 34, 0.15);
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+
+  border-color: var(--color-gold);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 8px 20px rgba(16, 23, 34, 0.12);
 }
 
-/* 버튼을 누르는 순간 */
 .submit-btn:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
-/* 키보드 접근성 */
 .submit-btn:focus-visible {
-    outline: 3px solid var(--color-gold);
-    outline-offset: 4px;
+  outline: 3px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+/* =========================================
+   연락처 정보 영역
+========================================= */
+
+.contact-info-section {
+  padding: 115px 30px;
+
+  background-color: #eeece6;
+}
+
+.contact-info-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.contact-info-heading {
+  margin-bottom: 55px;
+
+  text-align: center;
+}
+
+.contact-info-heading h2 {
+  margin: 12px 0 18px;
+
+  color: var(--color-navy);
+
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.contact-info-heading p {
+  color: var(--color-gray);
+
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+/* 연락처 카드 배치 */
+
+.contact-info-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* 연락처 카드 */
+
+.contact-info-card {
+  min-height: 260px;
+  box-sizing: border-box;
+
+  padding: 32px 28px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e8e3d9;
+  border-radius: 4px;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(198, 165, 107, 0.8);
+
+  box-shadow: 0 15px 35px rgba(16, 23, 34, 0.09);
+}
+
+.info-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 25px;
+}
+
+.info-number {
+  color: var(--color-gold);
+
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.info-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(198, 165, 107, 0.5);
+  border-radius: 50%;
+
+  color: var(--color-gold);
+
+  font-size: 21px;
+}
+
+.info-category {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--color-gold);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.contact-info-card h3 {
+  margin: 0 0 15px;
+
+  color: var(--color-navy);
+
+  font-size: 21px;
+}
+
+.contact-info-card p {
+  margin: 0 0 14px;
+
+  color: var(--color-navy);
+
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.info-description {
+  display: block;
+
+  color: var(--color-gray);
+
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   하단 마무리 영역
+========================================= */
+
+.contact-bottom {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 520px;
+  padding: 110px 20px;
+
+  box-sizing: border-box;
+
+  text-align: center;
+  color: var(--color-white);
+
+  background-image: url("../images/lounge.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.contact-bottom-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(rgba(12, 20, 32, 0.84), rgba(12, 20, 32, 0.92));
+}
+
+.contact-bottom-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.bottom-small-title {
+  display: block;
+
+  margin-bottom: 20px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.contact-bottom h2 {
+  margin: 12px 0 25px;
+
+  color: var(--color-white);
+
+  font-size: 38px;
+  line-height: 1.5;
+  letter-spacing: -1px;
+}
+
+.contact-bottom p {
+  margin-bottom: 35px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 14px;
+  line-height: 2;
+}
+
+.contact-bottom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  padding: 16px 38px;
+
+  border: 1px solid var(--color-gold);
+
+  color: var(--color-white);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.contact-bottom-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+
+  transform: translateY(-4px);
+}
+
+.contact-bottom-button span {
+  font-size: 17px;
+}
+
+/* =========================================
+   하단 푸터
+========================================= */
+
+.contact-page .site-footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.contact-page .footer-inner {
+  padding: 55px 20px;
+
+  text-align: center;
+}
+
+.contact-page .footer-logo {
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.contact-page .footer-inner p {
+  margin-bottom: 12px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.contact-page .footer-inner .footer-slogan {
+  color: rgba(255, 255, 255, 0.85);
+
+  font-size: 13px;
+}
+
+.footer-divider {
+  width: 45px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background-color: var(--color-gold);
+}
+
+.contact-page .footer-inner .footer-copy {
+  margin-top: 15px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 10px;
+}
+
+/* =========================================
+   스크롤 애니메이션
+   JavaScript 사용하지 않음
+========================================= */
+
+@supports (animation-timeline: view()) {
+  .reservation-heading,
+  .reservation-form,
+  .contact-info-card {
+    animation: contactReveal linear both;
+
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  @keyframes contactReveal {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* =========================================
+   태블릿 헤더
+   HOME / ROOMS 페이지와 동일
+========================================= */
+
+@media (max-width: 1050px) {
+  .contact-page .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .contact-page .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+}
+
+/* =========================================
+   태블릿 화면
+========================================= */
+
+@media (max-width: 900px) {
+  .reservation-section {
+    padding: 95px 5%;
+  }
+
+  .reservation-form {
+    padding: 45px;
+  }
+
+  .contact-info-section {
+    padding: 95px 5%;
+  }
+
+  .contact-info-grid {
+    gap: 16px;
+  }
+
+  .contact-info-card {
+    padding: 28px 22px;
+  }
+}
+
+/* =========================================
+   모바일 화면
+   HOME / ROOMS 페이지와 동일한 헤더
+========================================= */
+
+@media (max-width: 768px) {
+  /* 모바일 헤더 */
+
+  .contact-page .header-inner {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
+
+    min-height: 70px;
+
+    padding: 0 22px;
+  }
+
+  .contact-page .logo {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  /* 모바일 메뉴 버튼 */
+
+  .contact-page .menu-toggle {
+    display: none;
+  }
+
+  .contact-page .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
+    display: flex;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .contact-page .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-gold);
+
+    border-radius: 2px;
+  }
+
+  /* 모바일 메뉴 */
+
+  .contact-page .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .contact-page .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .contact-page .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .contact-page .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .contact-page .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
+    text-align: center;
+  }
+
+  /* 체크박스 선택 시 메뉴 열기 */
+
+  .contact-page .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* 메인 배너 */
+
+  .contact-hero {
+    min-height: 650px;
+    padding: 130px 20px 100px;
+  }
+
+  .contact-hero h1 {
+    font-size: 54px;
+  }
+
+  .contact-hero-content > p {
+    font-size: 14px;
+  }
+
+  /* 예약 영역 */
+
+  .reservation-section {
+    padding: 85px 6%;
+  }
+
+  .reservation-heading h2,
+  .contact-info-heading h2 {
+    font-size: 30px;
+  }
+
+  .reservation-form {
+    padding: 38px 30px;
+  }
+
+  /* 연락처 영역 */
+
+  .contact-info-section {
+    padding: 85px 6%;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-info-card {
+    min-height: auto;
+    padding: 30px;
+  }
+
+  /* 하단 마무리 */
+
+  .contact-bottom {
+    min-height: 470px;
+    padding: 95px 20px;
+  }
+
+  .contact-bottom h2 {
+    font-size: 31px;
+  }
+}
+
+/* =========================================
+   작은 모바일 화면
+========================================= */
+
+@media (max-width: 550px) {
+  .contact-hero {
+    min-height: 580px;
+  }
+
+  .contact-hero h1 {
+    font-size: 43px;
+    letter-spacing: 3px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .contact-hero-content > p {
+    font-size: 13px;
+  }
+
+  .hero-button {
+    padding: 14px 25px;
+    font-size: 11px;
+  }
+
+  /* 예약 영역 */
+
+  .reservation-section {
+    padding: 75px 20px;
+  }
+
+  .reservation-heading h2,
+  .contact-info-heading h2 {
+    font-size: 26px;
+  }
+
+  .reservation-heading p,
+  .contact-info-heading p {
+    font-size: 12px;
+  }
+
+  .reservation-form {
+    padding: 30px 20px;
+  }
+
+  .form-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-top h3 {
+    font-size: 20px;
+  }
+
+  .form-top > p {
+    font-size: 11px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    min-height: 50px;
+    padding: 13px 14px;
+
+    font-size: 13px;
+  }
+
+  .form-group select {
+    padding-right: 45px;
+    background-position: right 15px center;
+  }
+
+  .form-group textarea {
+    min-height: 140px;
+  }
+
+  .form-divider {
+    margin: 35px 0;
+  }
+
+  .form-notice {
+    padding: 17px;
+  }
+
+  .form-notice p {
+    font-size: 10px;
+  }
+
+  .submit-btn {
+    min-height: 54px;
+    font-size: 13px;
+  }
+
+  /* 연락처 영역 */
+
+  .contact-info-section {
+    padding: 75px 20px;
+  }
+
+  .contact-info-card {
+    padding: 27px 23px;
+  }
+
+  /* 하단 마무리 */
+
+  .contact-bottom {
+    min-height: 420px;
+    padding: 80px 20px;
+  }
+
+  .contact-bottom h2 {
+    font-size: 26px;
+  }
+
+  .contact-bottom p {
+    font-size: 12px;
+  }
+
+  .contact-bottom-button {
+    padding: 14px 30px;
+    font-size: 12px;
+  }
+
+  /* 푸터 */
+
+  .contact-page .footer-inner {
+    padding: 45px 15px;
+  }
+}
+
+/* =========================================
+   움직임 최소화 설정
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .contact-info-card,
+  .hero-button,
+  .submit-btn,
+  .contact-bottom-button {
+    animation: none !important;
+    transition: none !important;
+  }
 }

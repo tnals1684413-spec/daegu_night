@@ -1,184 +1,953 @@
+/* =========================================
+   DAEGU NIGHT - ROOMS PAGE
+   HTML + CSS ONLY
+========================================= */
 
-/* 페이지 제목 */
-
-.page-title {
-    padding: 85px 20px;
-    text-align: center;
-    background-color: var(--color-navy);
-    color: var(--color-white);
+.menu-page {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-ivory);
 }
 
-.page-title h1 {
-    margin-bottom: 12px;
-    color: var(--color-gold);
-    font-size: 42px;
-    letter-spacing: 5px;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
-.page-title p {
-    font-size: 16px;
+/* =========================================
+   1. 상단 헤더
+   HOME 페이지와 동일한 디자인
+========================================= */
+
+.menu-page .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  color: #ffffff;
+
+  background: rgba(10, 15, 25, 0.48);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-/* 객실 구역 */
+/* PC 상단 메뉴 전체 */
 
-.room-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 30px;
+.menu-page .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
 }
 
-.room-heading {
-    margin-bottom: 35px;
-    text-align: center;
+/* 로고 */
+
+.menu-page .logo {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  white-space: nowrap;
 }
 
-.room-heading span {
-    color: var(--color-gold);
-    font-weight: bold;
-    letter-spacing: 3px;
+/* PC 내비게이션 오른쪽 정렬 */
+
+.menu-page .site-nav {
+  margin-left: auto;
 }
 
-.room-heading h2 {
-    margin: 8px 0;
-    color: var(--color-navy);
-    font-size: 30px;
+.menu-page .site-nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0;
 }
 
-.room-heading p {
-    color: var(--color-gray);
+.menu-page .site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-/* 객실 카드 */
+.menu-page .site-nav li:last-child {
+  border-right: none;
+}
+
+/* 메뉴 항목 */
+
+.menu-page .site-nav a {
+  display: inline-grid;
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
+}
+
+/* 영어와 한국어 겹쳐 표시 */
+
+.menu-page .site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+/* 기본 상태: 영어 표시 */
+
+.menu-page .site-nav .nav-en {
+  opacity: 1;
+}
+
+/* 기본 상태: 한국어 숨김 */
+
+.menu-page .site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+/* 마우스 및 키보드 선택 시 영어 숨김 */
+
+.menu-page .site-nav a:hover .nav-en,
+.menu-page .site-nav a:focus-visible .nav-en {
+  opacity: 0;
+}
+
+/* 마우스 및 키보드 선택 시 한국어 표시 */
+
+.menu-page .site-nav a:hover .nav-ko,
+.menu-page .site-nav a:focus-visible .nav-ko {
+  opacity: 1;
+}
+
+/* 마우스 효과 */
+
+.menu-page .site-nav a:hover {
+  color: var(--color-gold);
+}
+
+/* PC에서는 햄버거 메뉴 숨김 */
+
+.menu-page .menu-toggle,
+.menu-page .menu-icon {
+  display: none;
+}
+
+/* =========================================
+   2. 메인 배너
+========================================= */
+
+.room-hero {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 760px;
+  padding: 150px 20px 120px;
+
+  text-align: center;
+  color: #ffffff;
+
+  background:
+    linear-gradient(rgba(8, 13, 22, 0.55), rgba(8, 13, 22, 0.72)),
+    url("../images/lounge.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.room-hero-content {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero-subtitle {
+  margin-bottom: 22px;
+
+  color: var(--color-gold);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.room-hero h1 {
+  margin: 0 0 25px;
+
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 400;
+  letter-spacing: 5px;
+}
+
+.hero-description {
+  margin-bottom: 40px;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.hero-button {
+  display: inline-block;
+  padding: 15px 35px;
+
+  border: 1px solid var(--color-gold);
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+  background: var(--color-gold);
+  color: var(--color-dark);
+  transform: translateY(-3px);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  letter-spacing: 3px;
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 38px;
+  background: var(--color-gold);
+}
+
+/* =========================================
+   3. 객실 소개
+========================================= */
+
+.room-introduction {
+  padding: 115px 20px 105px;
+  background-color: var(--color-ivory);
+}
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-subtitle {
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.section-heading h2 {
+  margin-bottom: 22px;
+
+  color: var(--color-navy);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.section-description {
+  color: var(--color-gray);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   4. 층별 객실 공통
+========================================= */
+
+.room-floor {
+  padding: 110px 7%;
+}
+
+.floor-heading {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  max-width: 1250px;
+  margin: 0 auto 55px;
+}
+
+.floor-number {
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.floor-subtitle {
+  margin-bottom: 10px;
+
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.floor-heading h2 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.floor-heading p:last-child {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   5. 객실 카드 배치
+========================================= */
 
 .room-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 30px;
+
+  max-width: 1250px;
+  margin: 0 auto;
 }
 
+/* =========================================
+   6. 객실 카드
+========================================= */
+
 .room-card {
-    overflow: hidden;
-    background-color: var(--color-white);
-    border: 1px solid #e8e2d7;
-    border-radius: 8px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid rgba(23, 36, 58, 0.08);
+  border-radius: 6px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .room-card:hover {
-    transform: translateY(-6px);
+  transform: translateY(-7px);
+  border-color: rgba(198, 165, 107, 0.65);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* 임시 객실 이미지 영역 */
-
-.room-image {
-    height: 230px;
-    background-color: #d8d2c7;
-    background-size: cover;
-    background-position: center;
-}
-
-.room-standard {
-    background-image: linear-gradient(135deg, #9b8d7b, #d8c8ae);
-}
-
-.room-family {
-    background-image: linear-gradient(135deg, #7e8c85, #c4c9b9);
-}
-
-.room-lovely {
-    background-image: linear-gradient(135deg, #c99e9e, #f0d9d1);
-}
-
-.room-pc {
-    background-image: linear-gradient(135deg, #27374a, #71849a);
-}
-
-/* 객실 설명 */
-
-.room-info {
-    padding: 25px;
-}
-
-.room-info h3 {
-    margin-bottom: 12px;
-    color: var(--color-navy);
-    font-size: 21px;
-}
-
-.room-info p {
-    margin-bottom: 10px;
-    color: var(--color-gray);
-    font-size: 14px;
-}
-
-.room-info .room-price {
-    margin-top: 20px;
-    color: var(--color-dark);
-}
-
-.room-price strong {
-    color: #a27b3f;
-    font-size: 19px;
-}
-
-.room-info .room-capacity {
-    margin-bottom: 0;
-    font-size: 13px;
-}
-
-/* 태블릿 */
-
-@media (max-width: 900px) {
-    .room-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* 모바일 */
-
-@media (max-width: 550px) {
-    .page-title {
-        padding: 65px 15px;
-    }
-
-    .page-title h1 {
-        font-size: 34px;
-    }
-
-    .room-section {
-        padding: 60px 20px;
-    }
-
-    .room-heading h2 {
-        font-size: 25px;
-    }
-
-    .room-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .room-image {
-        height: 220px;
-    }
-}
-
-
-/* 객실 사진 공통 설정 */
-.room-image {
+.room-card-image {
+  overflow: hidden;
   width: 100%;
-  height: auto;
-  max-height: 320px;
-  object-fit: contain;
-  display: block;
-  border-radius: 12px;
-  margin-bottom: 18px;
+  height: 250px;
+  background-color: #d9d9d9;
 }
 
-/* 모바일 화면 */
-@media (max-width: 768px) {
-  .room-image {
-    max-height: 260px;
+.room-card-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition: transform 0.6s ease;
+}
+
+.room-card:hover .room-card-image img {
+  transform: scale(1.05);
+}
+
+.room-card-content {
+  padding: 28px 25px 25px;
+}
+
+.room-category {
+  margin-bottom: 12px;
+
+  color: var(--color-gold);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.room-card h3 {
+  margin: 0 0 15px;
+
+  color: var(--color-navy);
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.room-description {
+  min-height: 55px;
+  margin-bottom: 25px;
+
+  color: var(--color-gray);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.room-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 18px;
+  border-top: 1px solid #eeeeee;
+}
+
+.room-price {
+  color: var(--color-navy);
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.room-floor-label {
+  color: var(--color-gold);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   7. 2층 일반 객실
+========================================= */
+
+.standard-section {
+  background-color: var(--color-ivory);
+}
+
+.standard-section .room-card {
+  background-color: #ffffff;
+}
+
+/* =========================================
+   8. 3층 테마 객실
+========================================= */
+
+.theme-section {
+  color: #ffffff;
+
+  background-image:
+    linear-gradient(rgba(10, 13, 20, 0.8), rgba(10, 13, 20, 0.86)),
+    url("../images/room_background.png");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.theme-section .floor-heading h2 {
+  color: #ffffff;
+}
+
+.theme-section .floor-heading p:last-child {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.theme-section .room-card {
+  background-color: #f8f7f3;
+}
+
+.theme-section .room-card:hover {
+  border-color: var(--color-gold);
+}
+
+/* =========================================
+   9. 4층 PC 객실
+========================================= */
+
+.pc-section {
+  background-color: #eeece6;
+}
+
+/* =========================================
+   10. 예약 및 문의
+========================================= */
+
+.room-contact {
+  position: relative;
+
+  padding: 120px 20px;
+
+  text-align: center;
+  color: #ffffff;
+
+  background:
+    linear-gradient(rgba(12, 20, 32, 0.88), rgba(12, 20, 32, 0.9)),
+    url("../images/lounge.png");
+
+  background-size: cover;
+  background-position: center;
+}
+
+.room-contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.room-contact h2 {
+  margin-bottom: 25px;
+
+  color: #ffffff;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 700;
+}
+
+.room-contact p:not(.section-subtitle) {
+  margin-bottom: 35px;
+
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 15px 40px;
+
+  border: 1px solid var(--color-gold);
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: var(--color-gold);
+  color: var(--color-dark);
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   11. 푸터
+========================================= */
+
+.menu-page .site-footer {
+  background-color: var(--color-dark);
+  color: #ffffff;
+}
+
+.menu-page .footer-inner {
+  padding: 55px 20px;
+  text-align: center;
+}
+
+.menu-page .footer-logo {
+  margin-bottom: 15px;
+
+  color: var(--color-gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.menu-page .footer-inner p {
+  margin-bottom: 12px;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.menu-page .footer-copy {
+  margin-top: 30px;
+
+  color: rgba(255, 255, 255, 0.4) !important;
+  font-size: 11px !important;
+}
+
+/* =========================================
+   12. 스크롤 등장 효과
+   JavaScript 사용하지 않음
+========================================= */
+
+@supports (animation-timeline: view()) {
+  .room-card {
+    animation: roomReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  .floor-heading,
+  .section-heading {
+    animation: roomReveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+
+  @keyframes roomReveal {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
+/* =========================================
+   13. 태블릿
+   HOME 페이지와 동일한 헤더 설정
+========================================= */
+
+@media (max-width: 1050px) {
+  .menu-page .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .menu-page .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+
+  .room-floor {
+    padding: 90px 5%;
+  }
+
+  .room-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+  }
+
+  .room-card-image {
+    height: 230px;
+  }
+
+  .floor-number {
+    font-size: 55px;
+  }
+
+  .floor-heading h2 {
+    font-size: 30px;
+  }
+}
+
+/* =========================================
+   14. 모바일
+   HOME 페이지와 동일한 헤더 설정
+========================================= */
+
+@media (max-width: 768px) {
+  /* 모바일 헤더 */
+
+  .menu-page .header-inner {
+    display: grid;
+
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
+
+    min-height: 70px;
+
+    padding: 0 22px;
+  }
+
+  .menu-page .logo {
+    grid-column: 2;
+    grid-row: 1;
+
+    justify-self: center;
+
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
+
+  /* 모바일 메뉴 버튼 */
+
+  .menu-page .menu-toggle {
+    display: none;
+  }
+
+  .menu-page .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
+
+    justify-self: end;
+
+    display: flex;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .menu-page .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background: var(--color-gold);
+
+    border-radius: 2px;
+  }
+
+  /* 모바일 메뉴 */
+
+  .menu-page .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .menu-page .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .menu-page .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .menu-page .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .menu-page .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
+    text-align: center;
+  }
+
+  /* 체크박스 선택 시 메뉴 열기 */
+
+  .menu-page .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
+
+  /* 메인 배너 */
+
+  .room-hero {
+    min-height: 650px;
+    padding: 130px 20px 100px;
+  }
+
+  .room-hero h1 {
+    font-size: 54px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  /* 객실 소개 */
+
+  .room-introduction {
+    padding: 85px 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 28px;
+  }
+
+  /* 층별 객실 */
+
+  .room-floor {
+    padding: 75px 6%;
+  }
+
+  .floor-heading {
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .floor-number {
+    font-size: 45px;
+  }
+
+  .floor-heading h2 {
+    font-size: 26px;
+  }
+
+  .floor-heading p:last-child {
+    font-size: 13px;
+  }
+
+  .room-grid {
+    gap: 20px;
+  }
+
+  .room-card-image {
+    height: 200px;
+  }
+
+  .room-card-content {
+    padding: 22px 18px;
+  }
+
+  .room-card h3 {
+    font-size: 18px;
+  }
+
+  .room-description {
+    font-size: 12px;
+  }
+
+  /* 예약 문의 */
+
+  .room-contact {
+    padding: 90px 20px;
+  }
+}
+
+/* =========================================
+   15. 작은 모바일
+========================================= */
+
+@media (max-width: 550px) {
+  .room-hero {
+    min-height: 580px;
+  }
+
+  .room-hero h1 {
+    font-size: 43px;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .room-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .room-card-image {
+    height: 240px;
+  }
+
+  .room-card-content {
+    padding: 25px;
+  }
+
+  .floor-heading {
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .floor-number {
+    font-size: 38px;
+  }
+
+  .floor-heading h2 {
+    font-size: 23px;
+  }
+
+  .room-introduction {
+    padding: 75px 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 25px;
+  }
+
+  .section-description {
+    font-size: 13px;
+  }
+}
+
+/* =========================================
+   16. 움직임 최소화 설정
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .room-card,
+  .room-card-image img,
+  .hero-button,
+  .contact-button,
+  .floor-heading,
+  .section-heading {
+    animation: none !important;
+    transition: none !important;
+  }
+}

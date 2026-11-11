@@ -1,17 +1,16 @@
-
 /* =================================
    1. 브랜드 기본 설정
 ================================= */
 
 :root {
-    --color-navy: #17243a;
-    --color-dark: #101722;
-    --color-gold: #c6a56b;
-    --color-ivory: #f7f4ed;
-    --color-white: #ffffff;
-    --color-gray: #777777;
+  --color-navy: #17243a;
+  --color-dark: #101722;
+  --color-gold: #c6a56b;
+  --color-ivory: #f7f4ed;
+  --color-white: #ffffff;
+  --color-gray: #777777;
 
-    --font-main: Arial, "Malgun Gothic", sans-serif;
+  --font-main: Arial, "Malgun Gothic", sans-serif;
 }
 
 /* =================================
@@ -19,201 +18,378 @@
 ================================= */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-main);
-    color: var(--color-dark);
-    background-color: var(--color-white);
-    line-height: 1.6;
+  font-family: var(--font-main);
+  color: var(--color-dark);
+  background-color: var(--color-white);
+  line-height: 1.6;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 /* =================================
-   3. 상단 헤더
+   3. 공통 상단 헤더
 ================================= */
 
 .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background-color: var(--color-navy);
-    color: var(--color-white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: rgba(10, 15, 25, 0.48);
+  color: var(--color-white);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
+
+/* 헤더 전체 */
 
 .header-inner {
-    max-width: 1200px;
-    min-height: 80px;
-    margin: 0 auto;
-    padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 100%;
+  max-width: 1500px;
+  min-height: 85px;
+
+  margin: 0 auto;
+  padding: 0 45px;
 }
 
+/* 로고 */
+
 .logo {
-    color: var(--color-gold);
-    font-size: 25px;
-    font-weight: bold;
-    letter-spacing: 2px;
+  color: var(--color-gold);
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+  white-space: nowrap;
 }
 
 /* =================================
-   4. 내비게이션 메뉴
+   4. 공통 내비게이션 메뉴
 ================================= */
 
+.site-nav {
+  margin-left: auto;
+}
+
 .site-nav ul {
-    display: flex;
-    align-items: center;
-    gap: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 0;
+}
+
+.site-nav li {
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.site-nav li:last-child {
+  border-right: none;
 }
 
 .site-nav a {
-    color: var(--color-white);
-    font-size: 15px;
-    transition: color 0.3s;
+  display: inline-grid;
+
+  grid-template-areas: "menu-label";
+  place-items: center;
+
+  min-width: 115px;
+  padding: 10px 15px;
+
+  color: var(--color-white);
+
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  transition: color 0.3s ease;
 }
+
+/* 영어와 한국어 겹쳐 표시 */
+
+.site-nav a span {
+  grid-area: menu-label;
+  transition: opacity 0.25s ease;
+}
+
+/* 기본 상태: 영어 표시 */
+
+.site-nav .nav-en {
+  opacity: 1;
+}
+
+/* 기본 상태: 한국어 숨김 */
+
+.site-nav .nav-ko {
+  opacity: 0;
+  letter-spacing: 0;
+}
+
+/* 마우스 및 키보드 선택 시 영어 숨김 */
+
+.site-nav a:hover .nav-en,
+.site-nav a:focus-visible .nav-en,
+.site-nav a:active .nav-en {
+  opacity: 0;
+}
+
+/* 마우스 및 키보드 선택 시 한국어 표시 */
+
+.site-nav a:hover .nav-ko,
+.site-nav a:focus-visible .nav-ko,
+.site-nav a:active .nav-ko {
+  opacity: 1;
+}
+
+/* 메뉴 마우스 오버 */
 
 .site-nav a:hover {
-    color: var(--color-gold);
+  color: var(--color-gold);
 }
 
-/* 모바일 메뉴 버튼은 PC에서 숨김 */
+/* =================================
+   5. 모바일 메뉴 기본 설정
+================================= */
 
 .menu-toggle,
 .menu-icon {
-    display: none;
+  display: none;
 }
 
 /* =================================
-   5. 하단 푸터
+   6. 공통 하단 푸터
 ================================= */
 
 footer {
-    padding: 40px 20px;
-    background-color: var(--color-dark);
-    color: var(--color-white);
-    text-align: center;
+  padding: 35px 20px;
+
+  background-color: var(--color-dark);
+  color: var(--color-ivory);
+
+  text-align: center;
+  line-height: 1.8;
 }
 
 footer p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #cccccc;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* 푸터 로고
+   p 또는 div.footer-logo 모두 지원 */
+
+footer .footer-logo,
+footer p:first-child {
+  margin-bottom: 12px;
+
+  color: var(--color-gold);
+
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* 푸터 마지막 문단 */
+
+footer p:last-child {
+  margin-top: 12px;
+
+  color: #b8b8b8;
+  font-size: 12px;
+}
+
+/* 푸터 구분선 */
+
+.footer-divider {
+  width: 45px;
+  height: 1px;
+
+  margin: 25px auto;
+
+  background-color: var(--color-gold);
 }
 
 /* =================================
-   6. 태블릿 및 모바일 화면
+   7. 태블릿 화면
+================================= */
+
+@media (max-width: 1050px) {
+  .header-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .site-nav a {
+    min-width: 90px;
+    padding: 10px;
+
+    font-size: 11px;
+  }
+}
+
+/* =================================
+   8. 모바일 화면
 ================================= */
 
 @media (max-width: 768px) {
+  /* 모바일 헤더 */
 
-    .header-inner {
-        min-height: 70px;
-        padding: 0 20px;
-        flex-wrap: wrap;
-    }
+  .header-inner {
+    display: grid;
 
-    .logo {
-        font-size: 21px;
-    }
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 70px auto;
 
-    /* 메뉴 버튼 표시 */
+    min-height: 70px;
 
-    .menu-icon {
-        display: flex;
-        width: 30px;
-        height: 24px;
-        flex-direction: column;
-        justify-content: space-between;
-        cursor: pointer;
-    }
+    padding: 0 22px;
+  }
 
-    .menu-icon span {
-        display: block;
-        width: 100%;
-        height: 3px;
-        background-color: var(--color-gold);
-        border-radius: 3px;
-    }
+  /* 모바일 로고 */
 
-    /* 메뉴 기본 상태: 닫힘 */
+  .logo {
+    grid-column: 2;
+    grid-row: 1;
 
-    .site-nav {
-        display: none;
-        width: 100%;
-    }
+    justify-self: center;
 
-    .site-nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        padding: 10px 0 20px;
-    }
+    font-size: 21px;
+    letter-spacing: 2px;
+  }
 
-    .site-nav li {
-        width: 100%;
-    }
+  /* 체크박스 숨김 */
 
-    .site-nav a {
-        display: block;
-        padding: 12px 0;
-    }
+  .menu-toggle {
+    display: none;
+  }
 
-    /* 체크박스를 누르면 메뉴 열림 */
+  /* 햄버거 메뉴 버튼 */
 
-    .menu-toggle:checked ~ .site-nav {
-        display: block;
-    }
-}
+  .menu-icon {
+    grid-column: 3;
+    grid-row: 1;
 
-/* 공통 푸터 디자인 개선 */
+    justify-self: end;
 
-footer {
-    padding: 35px 20px;
-    background-color: var(--color-dark);
-    color: var(--color-ivory);
+    display: flex;
+
+    width: 29px;
+    height: 22px;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+  }
+
+  .menu-icon span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    background-color: var(--color-gold);
+    border-radius: 2px;
+  }
+
+  /* 모바일 메뉴 기본 상태 */
+
+  .site-nav {
+    display: none;
+
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 5px 0 18px;
+  }
+
+  .site-nav li {
+    width: 100%;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .site-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .site-nav a {
+    display: grid;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 13px 5px;
+
     text-align: center;
-    line-height: 1.8;
+  }
+
+  /* 체크박스 선택 시 메뉴 열기 */
+
+  .menu-toggle:checked ~ .site-nav {
+    display: block;
+  }
 }
 
-footer p {
-    margin: 6px 0;
-    font-size: 14px;
-}
+/* =================================
+   9. 움직임 최소화 설정
+================================= */
 
-footer p:first-child {
-    margin-bottom: 12px;
-    color: var(--color-gold);
-    font-size: 18px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 
-footer p:last-child {
-    margin-top: 12px;
-    color: #b8b8b8;
-    font-size: 12px;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
