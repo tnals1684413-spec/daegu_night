@@ -2,143 +2,8 @@
    DAEGU NIGHT - HOME CSS
 ======================================== */
 
-/* ========================================
-   1. 상단 메뉴
-======================================== */
-
 .home-page {
   overflow-x: hidden;
-}
-
-.home-page .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-
-  width: 100%;
-
-  color: #ffffff;
-
-  background: rgba(10, 15, 25, 0.48);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* PC 상단 메뉴 전체 */
-
-.home-page .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 1500px;
-  min-height: 85px;
-
-  margin: 0 auto;
-  padding: 0 45px;
-}
-
-/* 로고 왼쪽 정렬 */
-
-.home-page .logo {
-  color: var(--color-gold);
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  font-weight: 600;
-
-  letter-spacing: 3px;
-
-  white-space: nowrap;
-}
-
-/* PC 내비게이션 오른쪽 정렬 */
-
-.home-page .site-nav {
-  margin-left: auto;
-}
-
-.home-page .site-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0;
-}
-
-.home-page .site-nav li {
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.home-page .site-nav li:last-child {
-  border-right: none;
-}
-
-/* 영어와 한글이 같은 위치에 표시되도록 설정 */
-
-.home-page .site-nav a {
-  display: inline-grid;
-  grid-template-areas: "menu-label";
-  place-items: center;
-
-  min-width: 115px;
-  padding: 10px 15px;
-
-  color: #ffffff;
-
-  font-size: 12px;
-  letter-spacing: 1.5px;
-
-  transition: color 0.3s ease;
-}
-
-.home-page .site-nav a span {
-  grid-area: menu-label;
-  transition: opacity 0.25s ease;
-}
-
-/* 기본 상태: 영어 표시 */
-
-.home-page .site-nav .nav-en {
-  opacity: 1;
-}
-
-/* 기본 상태: 한글 숨김 */
-
-.home-page .site-nav .nav-ko {
-  opacity: 0;
-  letter-spacing: 0;
-}
-
-/* 마우스를 올리면 영어 숨김 */
-
-.home-page .site-nav a:hover .nav-en,
-.home-page .site-nav a:focus-visible .nav-en {
-  opacity: 0;
-}
-
-/* 마우스를 올리면 한글 표시 */
-
-.home-page .site-nav a:hover .nav-ko,
-.home-page .site-nav a:focus-visible .nav-ko {
-  opacity: 1;
-}
-
-/* 마우스 효과 */
-
-.home-page .site-nav a:hover {
-  color: var(--color-gold);
-}
-
-/* PC에서는 햄버거 숨김 */
-
-.home-page .menu-toggle,
-.home-page .menu-icon {
-  display: none;
 }
 
 /* ========================================
@@ -158,82 +23,20 @@
   color: #ffffff;
 }
 
-/* 라디오 버튼 숨기기 */
-
-.hero input[type="radio"] {
-  position: absolute;
-
-  width: 1px;
-  height: 1px;
-
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* 슬라이드 영역 */
 
 .hero-slides {
   position: absolute;
   inset: 0;
+  z-index: 0;
 
   width: 100%;
   height: 100%;
 }
-
-/* 각각의 슬라이드 */
 
 .hero-slide {
-  position: absolute;
-  inset: 0;
-
   width: 100%;
   height: 100%;
-
-  opacity: 0;
-
-  animation: hero-auto 25s infinite;
-}
-
-/* 자동 전환 순서 */
-
-.hero-slide:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.hero-slide:nth-child(2) {
-  animation-delay: 5s;
-}
-
-.hero-slide:nth-child(3) {
-  animation-delay: 10s;
-}
-
-.hero-slide:nth-child(4) {
-  animation-delay: 15s;
-}
-
-.hero-slide:nth-child(5) {
-  animation-delay: 20s;
-}
-
-/* 자동 전환 애니메이션 */
-
-@keyframes hero-auto {
-  0% {
-    opacity: 1;
-  }
-
-  18% {
-    opacity: 1;
-  }
-
-  20% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 0;
-  }
 }
 
 /* 슬라이드 이미지 */
@@ -249,33 +52,6 @@
 
   user-select: none;
   -webkit-user-drag: none;
-}
-
-/* 자동 재생 상태 */
-
-.hero:has(#slide-auto:checked) .hero-slide {
-  animation-play-state: running;
-}
-
-/* 수동 선택 상태에서는 자동 애니메이션 정지 */
-
-.hero:has(#slide-manual-1:checked) .hero-slide,
-.hero:has(#slide-manual-2:checked) .hero-slide,
-.hero:has(#slide-manual-3:checked) .hero-slide,
-.hero:has(#slide-manual-4:checked) .hero-slide,
-.hero:has(#slide-manual-5:checked) .hero-slide {
-  animation: none;
-  opacity: 0;
-}
-
-/* 수동으로 선택한 사진만 표시 */
-
-.hero:has(#slide-manual-1:checked) .slide-one,
-.hero:has(#slide-manual-2:checked) .slide-two,
-.hero:has(#slide-manual-3:checked) .slide-three,
-.hero:has(#slide-manual-4:checked) .slide-four,
-.hero:has(#slide-manual-5:checked) .slide-five {
-  opacity: 1;
 }
 
 /* 사진 위 어두운 효과 */
@@ -362,7 +138,7 @@
    4. 슬라이드 이동 바
 ======================================== */
 
-.hero-indicators {
+.hero .hero-indicators {
   position: absolute;
   z-index: 3;
 
@@ -371,42 +147,40 @@
 
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
 
+  width: auto;
   transform: translateX(-50%);
+
+  --swiper-pagination-bullet-horizontal-gap: 0px;
 }
 
-.hero-indicators label {
+.hero .hero-indicators .swiper-pagination-bullet {
   display: block;
 
   width: 34px;
   height: 3px;
 
-  background: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  border-radius: 0;
 
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 1;
 
   transition:
-    background 0.3s ease,
+    background-color 0.3s ease,
     width 0.3s ease;
 }
 
-.hero-indicators label:hover {
+.hero .hero-indicators .swiper-pagination-bullet:hover {
   width: 45px;
-  background: var(--color-gold);
+  background-color: var(--color-gold);
 }
 
-/* 수동 선택한 막대 강조 */
-
-.hero:has(#slide-manual-1:checked) .hero-indicators label[for="slide-manual-1"],
-.hero:has(#slide-manual-2:checked) .hero-indicators label[for="slide-manual-2"],
-.hero:has(#slide-manual-3:checked) .hero-indicators label[for="slide-manual-3"],
-.hero:has(#slide-manual-4:checked) .hero-indicators label[for="slide-manual-4"],
-.hero:has(#slide-manual-5:checked)
-  .hero-indicators
-  label[for="slide-manual-5"] {
+.hero .hero-indicators .swiper-pagination-bullet-active {
   width: 45px;
-  background: var(--color-gold);
+  background-color: var(--color-gold);
 }
 
 /* 자동 재생 버튼 */
@@ -424,8 +198,10 @@
 
   color: #ffffff;
 
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.6);
 
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 2px;
 
@@ -437,6 +213,35 @@
 .hero-play:hover {
   color: var(--color-gold);
   border-color: var(--color-gold);
+}
+
+.hero-arrow.swiper-button-prev,
+.hero-arrow.swiper-button-next {
+  z-index: 3;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  color: var(--color-gold);
+  background: transparent;
+  border: 0;
+
+  appearance: none;
+}
+
+.hero-arrow.swiper-button-prev {
+  left: clamp(16px, 3vw, 45px);
+}
+
+.hero-arrow.swiper-button-next {
+  right: clamp(16px, 3vw, 45px);
+}
+
+.hero-arrow.swiper-button-prev::after,
+.hero-arrow.swiper-button-next::after {
+  font-size: 24px;
 }
 
 /* ========================================
@@ -803,7 +608,7 @@
 
   color: var(--color-navy);
 
-  font-size: 21px;
+  font-size: 20px;
 }
 
 .feature-card p {
@@ -813,62 +618,8 @@
   line-height: 1.9;
 }
 
-/* ========================================
-   10. 하단 예약 및 문의
-======================================== */
-
 .home-contact {
-  padding: 115px 30px;
-
-  background:
-    linear-gradient(rgba(10, 15, 25, 0.78), rgba(10, 15, 25, 0.88)),
-    url("../images/exterior.png");
-
-  background-size: cover;
-  background-position: center;
-
-  text-align: center;
-}
-
-.home-contact-inner {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.home-contact h2 {
-  margin-bottom: 20px;
-
-  color: #ffffff;
-
-  font-size: 35px;
-}
-
-.home-contact p:not(.section-subtitle) {
-  margin-bottom: 30px;
-
-  color: rgba(255, 255, 255, 0.82);
-
-  font-size: 15px;
-  line-height: 1.8;
-}
-
-.contact-link {
-  display: inline-block;
-
-  padding: 16px 40px;
-
-  color: var(--color-dark);
-
-  background: var(--color-gold);
-
-  font-size: 14px;
-  font-weight: 700;
-
-  transition: background 0.3s ease;
-}
-
-.contact-link:hover {
-  background: #e0c18b;
+  background-image: url("../images/exterior.jpg");
 }
 
 /* ========================================
@@ -876,18 +627,6 @@
 ======================================== */
 
 @media (max-width: 1050px) {
-  .home-page .header-inner {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .home-page .site-nav a {
-    min-width: 90px;
-    padding: 10px;
-
-    font-size: 11px;
-  }
-
   .experience-item {
     gap: 45px;
   }
@@ -902,110 +641,31 @@
 ======================================== */
 
 @media (max-width: 768px) {
-  /* 모바일 상단 메뉴 */
-
-  .home-page .header-inner {
-    display: grid;
-
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 70px auto;
-
-    min-height: 70px;
-
-    padding: 0 22px;
-  }
-
-  .home-page .logo {
-    grid-column: 2;
-    grid-row: 1;
-
-    justify-self: center;
-
-    font-size: 21px;
-    letter-spacing: 2px;
-  }
-
-  .home-page .menu-toggle {
-    display: none;
-  }
-
-  .home-page .menu-icon {
-    grid-column: 3;
-    grid-row: 1;
-
-    justify-self: end;
-
-    display: flex;
-
-    width: 29px;
-    height: 22px;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    cursor: pointer;
-  }
-
-  .home-page .menu-icon span {
-    display: block;
-
-    width: 100%;
-    height: 2px;
-
-    background: var(--color-gold);
-
-    border-radius: 2px;
-  }
-
-  .home-page .site-nav {
-    display: none;
-
-    grid-column: 1 / -1;
-    grid-row: 2;
-
-    width: 100%;
-  }
-
-  .home-page .site-nav ul {
-    flex-direction: column;
-    align-items: stretch;
-
-    gap: 0;
-
-    padding: 5px 0 18px;
-  }
-
-  .home-page .site-nav li {
-    width: 100%;
-
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .home-page .site-nav li:last-child {
-    border-bottom: none;
-  }
-
-  .home-page .site-nav a {
-    display: grid;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 13px 5px;
-
-    text-align: center;
-  }
-
-  .home-page .menu-toggle:checked ~ .site-nav {
-    display: block;
-  }
-
   /* 메인 화면 */
 
   .hero {
     height: 100svh;
     min-height: 620px;
+  }
+
+  .hero-slide-exterior img {
+    object-position: 70% center;
+  }
+
+  .hero-slide-lounge img {
+    object-position: 20% center;
+  }
+
+  .hero-slide-fantasy img {
+    object-position: 70% center;
+  }
+
+  .hero-slide-cyberpunk img {
+    object-position: 74% center;
+  }
+
+  .hero-slide-pc img {
+    object-position: 82% center;
   }
 
   .hero-content {
@@ -1035,36 +695,30 @@
     font-size: 13px;
   }
 
-  .hero-indicators {
+  .hero .hero-indicators {
     bottom: 75px;
 
     gap: 8px;
   }
 
-  .hero-indicators label {
+  .hero .hero-indicators .swiper-pagination-bullet {
     width: 23px;
   }
 
-  .hero-indicators label:hover {
+  .hero .hero-indicators .swiper-pagination-bullet:hover,
+  .hero .hero-indicators .swiper-pagination-bullet-active {
     width: 30px;
   }
 
-  .hero:has(#slide-manual-1:checked)
-    .hero-indicators
-    label[for="slide-manual-1"],
-  .hero:has(#slide-manual-2:checked)
-    .hero-indicators
-    label[for="slide-manual-2"],
-  .hero:has(#slide-manual-3:checked)
-    .hero-indicators
-    label[for="slide-manual-3"],
-  .hero:has(#slide-manual-4:checked)
-    .hero-indicators
-    label[for="slide-manual-4"],
-  .hero:has(#slide-manual-5:checked)
-    .hero-indicators
-    label[for="slide-manual-5"] {
-    width: 30px;
+  .hero-arrow.swiper-button-prev,
+  .hero-arrow.swiper-button-next {
+    top: auto;
+    bottom: 115px;
+
+    width: 44px;
+    height: 44px;
+
+    margin-top: 0;
   }
 
   .hero-play {
@@ -1163,15 +817,6 @@
     padding: 30px 25px;
   }
 
-  /* 하단 문의 */
-
-  .home-contact {
-    padding: 85px 22px;
-  }
-
-  .home-contact h2 {
-    font-size: 27px;
-  }
 }
 
 /* ========================================
@@ -1199,11 +844,16 @@
     font-size: 24px;
   }
 
-  .hero-indicators {
+  .hero .hero-indicators {
     gap: 7px;
   }
 
-  .hero-indicators label {
+  .hero .hero-indicators .swiper-pagination-bullet {
     width: 18px;
+  }
+
+  .hero .hero-indicators .swiper-pagination-bullet:hover,
+  .hero .hero-indicators .swiper-pagination-bullet-active {
+    width: 25px;
   }
 }

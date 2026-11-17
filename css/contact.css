@@ -17,139 +17,6 @@ html {
 }
 
 /* =========================================
-   상단 헤더
-   HOME / ROOMS / LOUNGE / LOCATION과 동일
-========================================= */
-
-.contact-page .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-
-  width: 100%;
-
-  color: #ffffff;
-
-  background: rgba(10, 15, 25, 0.48);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* PC 헤더 전체 */
-
-.contact-page .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 1500px;
-  min-height: 85px;
-
-  margin: 0 auto;
-  padding: 0 45px;
-}
-
-/* 로고 */
-
-.contact-page .logo {
-  color: var(--color-gold);
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  font-weight: 600;
-
-  letter-spacing: 3px;
-  white-space: nowrap;
-}
-
-/* 메뉴 */
-
-.contact-page .site-nav {
-  margin-left: auto;
-}
-
-.contact-page .site-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 0;
-}
-
-.contact-page .site-nav li {
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.contact-page .site-nav li:last-child {
-  border-right: none;
-}
-
-.contact-page .site-nav a {
-  display: inline-grid;
-
-  grid-template-areas: "menu-label";
-  place-items: center;
-
-  min-width: 115px;
-  padding: 10px 15px;
-
-  color: #ffffff;
-
-  font-size: 12px;
-  letter-spacing: 1.5px;
-
-  transition: color 0.3s ease;
-}
-
-.contact-page .site-nav a span {
-  grid-area: menu-label;
-  transition: opacity 0.25s ease;
-}
-
-/* 기본 영어 표시 */
-
-.contact-page .site-nav .nav-en {
-  opacity: 1;
-}
-
-/* 기본 한국어 숨김 */
-
-.contact-page .site-nav .nav-ko {
-  opacity: 0;
-  letter-spacing: 0;
-}
-
-/* 마우스 및 키보드 선택 시 영어 숨김 */
-
-.contact-page .site-nav a:hover .nav-en,
-.contact-page .site-nav a:focus-visible .nav-en {
-  opacity: 0;
-}
-
-/* 마우스 및 키보드 선택 시 한국어 표시 */
-
-.contact-page .site-nav a:hover .nav-ko,
-.contact-page .site-nav a:focus-visible .nav-ko {
-  opacity: 1;
-}
-
-.contact-page .site-nav a:hover {
-  color: var(--color-gold);
-}
-
-/* PC에서는 햄버거 메뉴 숨김 */
-
-.contact-page .menu-toggle,
-.contact-page .menu-icon {
-  display: none;
-}
-
-/* =========================================
    메인 배너
 ========================================= */
 
@@ -160,7 +27,8 @@ html {
   align-items: center;
   justify-content: center;
 
-  min-height: 760px;
+  min-height: 100vh;
+  min-height: 100svh;
   padding: 150px 20px 120px;
 
   box-sizing: border-box;
@@ -315,16 +183,19 @@ html {
 ========================================= */
 
 .reservation-section {
-  max-width: 1050px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 
-  padding: 120px 30px;
+  padding: 110px 30px;
 
   box-sizing: border-box;
+  background-color: #101722;
 }
 
 .reservation-heading {
-  margin-bottom: 55px;
+  max-width: 760px;
+  margin: 0 auto 55px;
 
   text-align: center;
 }
@@ -332,7 +203,7 @@ html {
 .reservation-heading h2 {
   margin: 12px 0 20px;
 
-  color: var(--color-navy);
+  color: var(--color-white);
 
   font-size: 36px;
   font-weight: 700;
@@ -340,7 +211,7 @@ html {
 }
 
 .reservation-heading p {
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.68);
 
   font-size: 14px;
   line-height: 2;
@@ -354,14 +225,16 @@ html {
   box-sizing: border-box;
 
   width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 55px 60px;
 
-  background-color: #ffffff;
+  background: linear-gradient(145deg, #17243a 0%, #111923 100%);
 
-  border: 1px solid #e8e3d9;
+  border: 1px solid rgba(198, 165, 107, 0.35);
   border-radius: 5px;
 
-  box-shadow: 0 15px 40px rgba(16, 23, 34, 0.07);
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
 }
 
 /* 양식 상단 제목 */
@@ -391,7 +264,7 @@ html {
 .form-top h3 {
   margin: 0;
 
-  color: var(--color-navy);
+  color: var(--color-white);
 
   font-size: 23px;
   font-weight: 700;
@@ -400,13 +273,13 @@ html {
 .form-top > p {
   margin: 0;
 
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.62);
 
   font-size: 12px;
 }
 
 .required-mark {
-  color: #b47d45;
+  color: #e0bd7d;
   font-weight: 700;
 }
 
@@ -418,12 +291,18 @@ html {
   margin-bottom: 27px;
 }
 
+.form-fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 28px;
+}
+
 .form-group label {
   display: block;
 
   margin-bottom: 11px;
 
-  color: var(--color-navy);
+  color: #f3eee4;
 
   font-size: 14px;
   font-weight: 700;
@@ -441,12 +320,12 @@ html {
 
   padding: 15px 18px;
 
-  border: 1px solid #ded9cf;
+  border: 1px solid rgba(198, 165, 107, 0.42);
   border-radius: 3px;
 
-  background-color: #faf9f6;
+  background-color: rgba(8, 13, 22, 0.58);
 
-  color: var(--color-dark);
+  color: #f7f4ed;
 
   font-family: inherit;
   font-size: 14px;
@@ -474,16 +353,16 @@ html {
 
   border-color: var(--color-gold);
 
-  background-color: #ffffff;
+  background-color: rgba(8, 13, 22, 0.9);
 
-  box-shadow: 0 0 0 3px rgba(198, 165, 107, 0.15);
+  box-shadow: 0 0 0 3px rgba(198, 165, 107, 0.2);
 }
 
 /* 입력창 안내 문구 */
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #aaa59b;
+  color: rgba(247, 244, 237, 0.46);
 }
 
 .form-group textarea {
@@ -502,7 +381,7 @@ html {
 
   padding-right: 50px;
 
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2317243a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c6a56b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
 
   background-repeat: no-repeat;
   background-position: right 18px center;
@@ -511,11 +390,17 @@ html {
   cursor: pointer;
 }
 
+.form-group select option {
+  background-color: #17243a;
+  color: #f7f4ed;
+}
+
 /* 날짜 입력창 */
 
 .form-group input[type="date"] {
   padding-right: 18px;
 
+  color-scheme: dark;
   cursor: pointer;
 }
 
@@ -535,7 +420,7 @@ html {
 
   margin-top: 9px;
 
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.56);
 
   font-size: 11px;
   line-height: 1.7;
@@ -551,11 +436,18 @@ html {
 
   margin: 45px 0;
 
-  background-color: #e8e3d9;
+  background-color: rgba(198, 165, 107, 0.32);
 }
 
 .room-form-top {
   margin-bottom: 32px;
+}
+
+.additional-form-top {
+  margin: 6px 0 30px;
+  padding-top: 20px;
+
+  border-top: 1px solid rgba(198, 165, 107, 0.32);
 }
 
 /* =========================================
@@ -566,9 +458,9 @@ html {
   margin: 35px 0 25px;
   padding: 20px 22px;
 
-  background-color: #f5f1e8;
+  background-color: rgba(8, 13, 22, 0.55);
 
-  border-left: 3px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
 }
 
 .notice-title {
@@ -586,7 +478,7 @@ html {
 .form-notice p {
   margin: 0 0 7px;
 
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.65);
 
   font-size: 12px;
   line-height: 1.8;
@@ -611,11 +503,11 @@ html {
 
   padding: 16px 20px;
 
-  border: 1px solid var(--color-navy);
+  border: 1px solid var(--color-gold);
   border-radius: 3px;
 
-  background-color: var(--color-navy);
-  color: var(--color-white);
+  background-color: var(--color-gold);
+  color: #101722;
 
   font-family: inherit;
   font-size: 14px;
@@ -637,10 +529,10 @@ html {
 }
 
 .submit-btn:hover {
-  background-color: var(--color-gold);
-  color: var(--color-navy);
+  background-color: #d7bb8d;
+  color: #101722;
 
-  border-color: var(--color-gold);
+  border-color: #d7bb8d;
 
   transform: translateY(-3px);
 
@@ -656,6 +548,33 @@ html {
   outline-offset: 4px;
 }
 
+.form-status {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+.form-status.is-success {
+  border-color: rgba(112, 188, 128, 0.5);
+  background-color: rgba(40, 100, 55, 0.18);
+  color: #cbe9d1;
+}
+
+.form-status.is-error {
+  border-color: rgba(221, 110, 110, 0.55);
+  background-color: rgba(120, 38, 38, 0.22);
+  color: #ffd4d4;
+}
+
 /* =========================================
    연락처 정보 영역
 ========================================= */
@@ -663,7 +582,7 @@ html {
 .contact-info-section {
   padding: 115px 30px;
 
-  background-color: #eeece6;
+  background-color: #0c1119;
 }
 
 .contact-info-inner {
@@ -680,14 +599,14 @@ html {
 .contact-info-heading h2 {
   margin: 12px 0 18px;
 
-  color: var(--color-navy);
+  color: var(--color-white);
 
   font-size: 36px;
   font-weight: 700;
 }
 
 .contact-info-heading p {
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.65);
 
   font-size: 14px;
   line-height: 1.9;
@@ -710,9 +629,9 @@ html {
 
   padding: 32px 28px;
 
-  background-color: #ffffff;
+  background: linear-gradient(145deg, #17243a 0%, #131b27 100%);
 
-  border: 1px solid #e8e3d9;
+  border: 1px solid rgba(198, 165, 107, 0.28);
   border-radius: 4px;
 
   transition:
@@ -735,6 +654,9 @@ html {
   justify-content: space-between;
 
   margin-bottom: 25px;
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid rgba(198, 165, 107, 0.28);
 }
 
 .info-number {
@@ -776,7 +698,7 @@ html {
 .contact-info-card h3 {
   margin: 0 0 15px;
 
-  color: var(--color-navy);
+  color: var(--color-white);
 
   font-size: 21px;
 }
@@ -784,7 +706,7 @@ html {
 .contact-info-card p {
   margin: 0 0 14px;
 
-  color: var(--color-navy);
+  color: #f3eee4;
 
   font-size: 14px;
   font-weight: 700;
@@ -794,218 +716,14 @@ html {
 .info-description {
   display: block;
 
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.55);
 
   font-size: 11px;
   line-height: 1.8;
 }
 
-/* =========================================
-   하단 마무리 영역
-========================================= */
-
 .contact-bottom {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 520px;
-  padding: 110px 20px;
-
-  box-sizing: border-box;
-
-  text-align: center;
-  color: var(--color-white);
-
   background-image: url("../images/lounge.png");
-
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.contact-bottom-overlay {
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(rgba(12, 20, 32, 0.84), rgba(12, 20, 32, 0.92));
-}
-
-.contact-bottom-content {
-  position: relative;
-  z-index: 1;
-
-  max-width: 850px;
-  margin: 0 auto;
-}
-
-.bottom-small-title {
-  display: block;
-
-  margin-bottom: 20px;
-
-  color: rgba(255, 255, 255, 0.55);
-
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 4px;
-}
-
-.contact-bottom h2 {
-  margin: 12px 0 25px;
-
-  color: var(--color-white);
-
-  font-size: 38px;
-  line-height: 1.5;
-  letter-spacing: -1px;
-}
-
-.contact-bottom p {
-  margin-bottom: 35px;
-
-  color: rgba(255, 255, 255, 0.78);
-
-  font-size: 14px;
-  line-height: 2;
-}
-
-.contact-bottom-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-
-  padding: 16px 38px;
-
-  border: 1px solid var(--color-gold);
-
-  color: var(--color-white);
-
-  font-size: 13px;
-  font-weight: 600;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.contact-bottom-button:hover {
-  background-color: var(--color-gold);
-  color: var(--color-dark);
-
-  transform: translateY(-4px);
-}
-
-.contact-bottom-button span {
-  font-size: 17px;
-}
-
-/* =========================================
-   하단 푸터
-========================================= */
-
-.contact-page .site-footer {
-  background-color: var(--color-dark);
-  color: var(--color-white);
-}
-
-.contact-page .footer-inner {
-  padding: 55px 20px;
-
-  text-align: center;
-}
-
-.contact-page .footer-logo {
-  margin-bottom: 15px;
-
-  color: var(--color-gold);
-
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.contact-page .footer-inner p {
-  margin-bottom: 12px;
-
-  color: rgba(255, 255, 255, 0.65);
-
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-.contact-page .footer-inner .footer-slogan {
-  color: rgba(255, 255, 255, 0.85);
-
-  font-size: 13px;
-}
-
-.footer-divider {
-  width: 45px;
-  height: 1px;
-
-  margin: 25px auto;
-
-  background-color: var(--color-gold);
-}
-
-.contact-page .footer-inner .footer-copy {
-  margin-top: 15px;
-
-  color: rgba(255, 255, 255, 0.35);
-
-  font-size: 10px;
-}
-
-/* =========================================
-   스크롤 애니메이션
-   JavaScript 사용하지 않음
-========================================= */
-
-@supports (animation-timeline: view()) {
-  .reservation-heading,
-  .reservation-form,
-  .contact-info-card {
-    animation: contactReveal linear both;
-
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-
-  @keyframes contactReveal {
-    from {
-      opacity: 0;
-      transform: translateY(18px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-/* =========================================
-   태블릿 헤더
-   HOME / ROOMS 페이지와 동일
-========================================= */
-
-@media (max-width: 1050px) {
-  .contact-page .header-inner {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .contact-page .site-nav a {
-    min-width: 90px;
-    padding: 10px;
-
-    font-size: 11px;
-  }
 }
 
 /* =========================================
@@ -1018,7 +736,11 @@ html {
   }
 
   .reservation-form {
-    padding: 45px;
+    padding: 42px;
+  }
+
+  .form-fields-grid {
+    column-gap: 20px;
   }
 
   .contact-info-section {
@@ -1034,122 +756,12 @@ html {
   }
 }
 
-/* =========================================
-   모바일 화면
-   HOME / ROOMS 페이지와 동일한 헤더
-========================================= */
-
 @media (max-width: 768px) {
-  /* 모바일 헤더 */
-
-  .contact-page .header-inner {
-    display: grid;
-
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 70px auto;
-
-    min-height: 70px;
-
-    padding: 0 22px;
-  }
-
-  .contact-page .logo {
-    grid-column: 2;
-    grid-row: 1;
-
-    justify-self: center;
-
-    font-size: 21px;
-    letter-spacing: 2px;
-  }
-
-  /* 모바일 메뉴 버튼 */
-
-  .contact-page .menu-toggle {
-    display: none;
-  }
-
-  .contact-page .menu-icon {
-    grid-column: 3;
-    grid-row: 1;
-
-    justify-self: end;
-
-    display: flex;
-
-    width: 29px;
-    height: 22px;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    cursor: pointer;
-  }
-
-  .contact-page .menu-icon span {
-    display: block;
-
-    width: 100%;
-    height: 2px;
-
-    background: var(--color-gold);
-
-    border-radius: 2px;
-  }
-
-  /* 모바일 메뉴 */
-
-  .contact-page .site-nav {
-    display: none;
-
-    grid-column: 1 / -1;
-    grid-row: 2;
-
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .contact-page .site-nav ul {
-    flex-direction: column;
-    align-items: stretch;
-
-    gap: 0;
-
-    padding: 5px 0 18px;
-  }
-
-  .contact-page .site-nav li {
-    width: 100%;
-
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .contact-page .site-nav li:last-child {
-    border-bottom: none;
-  }
-
-  .contact-page .site-nav a {
-    display: grid;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 13px 5px;
-
-    text-align: center;
-  }
-
-  /* 체크박스 선택 시 메뉴 열기 */
-
-  .contact-page .menu-toggle:checked ~ .site-nav {
-    display: block;
-  }
-
   /* 메인 배너 */
 
   .contact-hero {
-    min-height: 650px;
+    min-height: 100vh;
+    min-height: 100svh;
     padding: 130px 20px 100px;
   }
 
@@ -1176,6 +788,10 @@ html {
     padding: 38px 30px;
   }
 
+  .form-fields-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   /* 연락처 영역 */
 
   .contact-info-section {
@@ -1194,16 +810,6 @@ html {
     padding: 30px;
   }
 
-  /* 하단 마무리 */
-
-  .contact-bottom {
-    min-height: 470px;
-    padding: 95px 20px;
-  }
-
-  .contact-bottom h2 {
-    font-size: 31px;
-  }
 }
 
 /* =========================================
@@ -1212,7 +818,8 @@ html {
 
 @media (max-width: 550px) {
   .contact-hero {
-    min-height: 580px;
+    min-height: 100vh;
+    min-height: 100svh;
   }
 
   .contact-hero h1 {
@@ -1317,31 +924,6 @@ html {
     padding: 27px 23px;
   }
 
-  /* 하단 마무리 */
-
-  .contact-bottom {
-    min-height: 420px;
-    padding: 80px 20px;
-  }
-
-  .contact-bottom h2 {
-    font-size: 26px;
-  }
-
-  .contact-bottom p {
-    font-size: 12px;
-  }
-
-  .contact-bottom-button {
-    padding: 14px 30px;
-    font-size: 12px;
-  }
-
-  /* 푸터 */
-
-  .contact-page .footer-inner {
-    padding: 45px 15px;
-  }
 }
 
 /* =========================================
@@ -1353,10 +935,15 @@ html {
     scroll-behavior: auto;
   }
 
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .contact-info-card,
   .hero-button,
-  .submit-btn,
-  .contact-bottom-button {
+  .submit-btn {
     animation: none !important;
     transition: none !important;
   }

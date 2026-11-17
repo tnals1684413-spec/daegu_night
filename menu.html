@@ -6,6 +6,10 @@
 
     <title>객실 안내 | DAEGU NIGHT</title>
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
     <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/menu.css" />
   </head>
@@ -18,7 +22,7 @@
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle" />
 
-        <label for="menu-toggle" class="menu-icon">
+        <label for="menu-toggle" class="menu-icon" aria-label="메뉴 열기">
           <span></span>
           <span></span>
           <span></span>
@@ -82,7 +86,7 @@
 
       <!-- 객실 소개 -->
       <section class="room-introduction">
-        <div class="section-heading">
+        <div class="section-heading" data-aos="fade-up">
           <p class="section-subtitle">SPACE & EXPERIENCE</p>
           <h2>당신을 위한 특별한 공간</h2>
           <p class="section-description">
@@ -94,7 +98,7 @@
 
       <!-- 2층 일반 객실 -->
       <section class="room-floor standard-section" id="floor-2">
-        <div class="floor-heading">
+        <div class="floor-heading" data-aos="fade-up">
           <div class="floor-number">02F</div>
           <div>
             <p class="floor-subtitle">STANDARD ROOM</p>
@@ -103,12 +107,13 @@
           </div>
         </div>
 
-        <div class="room-grid">
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/standard-room.png" alt="2인 일반 객실" />
-            </div>
-            <div class="room-card-content">
+        <div class="room-showcase standard-showcase">
+          <figure class="room-feature-image" data-aos="fade-up">
+            <img src="images/standard-room.png" alt="2층 스탠다드 객실" />
+          </figure>
+
+          <div class="room-info-list" data-aos="fade-up" data-aos-delay="150">
+            <article class="room-card room-info-card">
               <p class="room-category">STANDARD · 2 PEOPLE</p>
               <h3>2인 일반 객실</h3>
               <p class="room-description">
@@ -118,14 +123,9 @@
                 <span class="room-price">60,000원~</span>
                 <span class="room-floor-label">2F</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/standard-room.png" alt="4인 일반 객실" />
-            </div>
-            <div class="room-card-content">
+            <article class="room-card room-info-card">
               <p class="room-category">STANDARD · 4 PEOPLE</p>
               <h3>4인 일반 객실</h3>
               <p class="room-description">
@@ -135,14 +135,9 @@
                 <span class="room-price">별도 문의</span>
                 <span class="room-floor-label">2F</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/standard-room.png" alt="5인 일반 객실" />
-            </div>
-            <div class="room-card-content">
+            <article class="room-card room-info-card">
               <p class="room-category">STANDARD · 5 PEOPLE</p>
               <h3>5인 일반 객실</h3>
               <p class="room-description">
@@ -152,14 +147,14 @@
                 <span class="room-price">별도 문의</span>
                 <span class="room-floor-label">2F</span>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- 3층 테마 객실 -->
       <section class="room-floor theme-section" id="floor-3">
-        <div class="floor-heading">
+        <div class="floor-heading" data-aos="fade-up">
           <div class="floor-number">03F</div>
           <div>
             <p class="floor-subtitle">THEME ROOM</p>
@@ -168,17 +163,27 @@
           </div>
         </div>
 
-        <div class="room-grid">
-          <article class="room-card">
-            <div class="room-card-image">
+        <div class="theme-showcase">
+          <article class="room-card theme-room-card theme-room-card--feature">
+            <div
+              class="room-card-image theme-room-image"
+              data-aos="fade-right"
+              data-aos-delay="0"
+            >
               <img
                 src="images/theme_room_prison.jpg"
                 alt="프리즌 월드 테마 객실"
               />
+              <div class="theme-room-label">
+                <p class="room-category">301 · PRISON WORLD</p>
+                <h3>PRISON WORLD</h3>
+              </div>
             </div>
-            <div class="room-card-content">
-              <p class="room-category">301 · PRISON WORLD</p>
-              <h3>PRISON WORLD</h3>
+            <div
+              class="room-card-content"
+              data-aos="fade-right"
+              data-aos-delay="0"
+            >
               <p class="room-description">
                 감옥을 연상시키는 독특한 인테리어와 분위기를 경험할 수 있는
                 객실입니다.
@@ -190,72 +195,104 @@
             </div>
           </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img
-                src="images/theme_room_space.jpg"
-                alt="스페이스 월드 테마 객실"
-              />
-            </div>
-            <div class="room-card-content">
-              <p class="room-category">302 · SPACE WORLD</p>
-              <h3>SPACE WORLD</h3>
-              <p class="room-description">
-                우주와 미래를 주제로 꾸며진 신비로운 분위기의 객실입니다.
-              </p>
-              <div class="room-card-bottom">
-                <span class="room-price">80,000원~</span>
-                <span class="room-floor-label">302</span>
+          <div class="theme-room-support">
+            <article class="room-card theme-room-card theme-room-card--support">
+              <div
+                class="room-card-image theme-room-image"
+                data-aos="fade-left"
+                data-aos-delay="150"
+              >
+                <img
+                  src="images/theme_room_space.jpg"
+                  alt="스페이스 월드 테마 객실"
+                />
+                <div class="theme-room-label">
+                  <p class="room-category">302 · SPACE WORLD</p>
+                  <h3>SPACE WORLD</h3>
+                </div>
               </div>
-            </div>
-          </article>
+              <div
+                class="room-card-content"
+                data-aos="fade-left"
+                data-aos-delay="150"
+              >
+                <p class="room-description">
+                  우주와 미래를 주제로 꾸며진 신비로운 분위기의 객실입니다.
+                </p>
+                <div class="room-card-bottom">
+                  <span class="room-price">80,000원~</span>
+                  <span class="room-floor-label">302</span>
+                </div>
+              </div>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img
-                src="images/theme_room_fantasy.jpg"
-                alt="판타지 월드 테마 객실"
-              />
-            </div>
-            <div class="room-card-content">
-              <p class="room-category">303 · FANTASY WORLD</p>
-              <h3>FANTASY WORLD</h3>
-              <p class="room-description">
-                판타지 세계에 들어온 듯한 독특하고 감성적인 공간입니다.
-              </p>
-              <div class="room-card-bottom">
-                <span class="room-price">80,000원~</span>
-                <span class="room-floor-label">303</span>
+            <article class="room-card theme-room-card theme-room-card--support">
+              <div
+                class="room-card-image theme-room-image"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <img
+                  src="images/theme_room_fantasy.jpg"
+                  alt="판타지 월드 테마 객실"
+                />
+                <div class="theme-room-label">
+                  <p class="room-category">303 · FANTASY WORLD</p>
+                  <h3>FANTASY WORLD</h3>
+                </div>
               </div>
-            </div>
-          </article>
+              <div
+                class="room-card-content"
+                data-aos="fade-up"
+                data-aos-delay="300"
+              >
+                <p class="room-description">
+                  판타지 세계에 들어온 듯한 독특하고 감성적인 공간입니다.
+                </p>
+                <div class="room-card-bottom">
+                  <span class="room-price">80,000원~</span>
+                  <span class="room-floor-label">303</span>
+                </div>
+              </div>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img
-                src="images/theme_room_cyberpunk.jpg"
-                alt="사이버펑크 월드 테마 객실"
-              />
-            </div>
-            <div class="room-card-content">
-              <p class="room-category">304 · CYBERPUNK WORLD</p>
-              <h3>CYBERPUNK WORLD</h3>
-              <p class="room-description">
-                네온 조명과 미래적인 디자인으로 개성 있는 분위기를 연출한
-                객실입니다.
-              </p>
-              <div class="room-card-bottom">
-                <span class="room-price">80,000원~</span>
-                <span class="room-floor-label">304</span>
+            <article class="room-card theme-room-card theme-room-card--support">
+              <div
+                class="room-card-image theme-room-image"
+                data-aos="zoom-in"
+                data-aos-delay="450"
+              >
+                <img
+                  src="images/theme_room_cyberpunk.jpg"
+                  alt="사이버펑크 월드 테마 객실"
+                />
+                <div class="theme-room-label">
+                  <p class="room-category">304 · CYBERPUNK WORLD</p>
+                  <h3>CYBERPUNK WORLD</h3>
+                </div>
               </div>
-            </div>
-          </article>
+              <div
+                class="room-card-content"
+                data-aos="zoom-in"
+                data-aos-delay="450"
+              >
+                <p class="room-description">
+                  네온 조명과 미래적인 디자인으로 개성 있는 분위기를 연출한
+                  객실입니다.
+                </p>
+                <div class="room-card-bottom">
+                  <span class="room-price">80,000원~</span>
+                  <span class="room-floor-label">304</span>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- 4층 PC 객실 -->
       <section class="room-floor pc-section" id="floor-4">
-        <div class="floor-heading">
+        <div class="floor-heading" data-aos="fade-up">
           <div class="floor-number">04F</div>
           <div>
             <p class="floor-subtitle">PC ROOM</p>
@@ -264,12 +301,13 @@
           </div>
         </div>
 
-        <div class="room-grid">
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/home-main.png" alt="2인 PC 객실" />
-            </div>
-            <div class="room-card-content">
+        <div class="room-showcase pc-showcase">
+          <figure class="room-feature-image" data-aos="fade-up">
+            <img src="images/home-main.png" alt="4층 PC 객실" />
+          </figure>
+
+          <div class="room-info-list" data-aos="fade-up" data-aos-delay="150">
+            <article class="room-card room-info-card">
               <p class="room-category">PC ROOM · 2 PEOPLE</p>
               <h3>2인 PC 객실</h3>
               <p class="room-description">
@@ -279,14 +317,9 @@
                 <span class="room-price">100,000원~</span>
                 <span class="room-floor-label">4F</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/home-main.png" alt="3인 PC 객실" />
-            </div>
-            <div class="room-card-content">
+            <article class="room-card room-info-card">
               <p class="room-category">PC ROOM · 3 PEOPLE</p>
               <h3>3인 PC 객실</h3>
               <p class="room-description">
@@ -296,14 +329,9 @@
                 <span class="room-price">100,000원~</span>
                 <span class="room-floor-label">4F</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/home-main.png" alt="4인 PC 객실" />
-            </div>
-            <div class="room-card-content">
+            <article class="room-card room-info-card">
               <p class="room-category">PC ROOM · 4 PEOPLE</p>
               <h3>4인 PC 객실</h3>
               <p class="room-description">
@@ -313,14 +341,9 @@
                 <span class="room-price">100,000원~</span>
                 <span class="room-floor-label">4F</span>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <article class="room-card">
-            <div class="room-card-image">
-              <img src="images/home-main.png" alt="5인 PC 객실" />
-            </div>
-            <div class="room-card-content">
+            <article class="room-card room-info-card">
               <p class="room-category">PC ROOM · 5 PEOPLE</p>
               <h3>5인 PC 객실</h3>
               <p class="room-description">
@@ -330,32 +353,47 @@
                 <span class="room-price">100,000원~</span>
                 <span class="room-floor-label">4F</span>
               </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
 
       <!-- 예약 및 문의 -->
-      <section class="room-contact">
-        <div class="room-contact-content">
-          <p class="section-subtitle">YOUR SPECIAL NIGHT</p>
-          <h2>당신만의 특별한 밤을 만나보세요.</h2>
-          <p>
-            객실에 대한 자세한 문의와 예약은<br />
-            아래 버튼을 통해 확인하실 수 있습니다.
-          </p>
-          <a href="contact.html" class="contact-button">예약 및 문의</a>
+      <section class="room-contact site-cta">
+        <div class="room-contact-content site-cta-content">
+          <div
+            class="site-cta-copy"
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-center"
+          >
+            <p class="section-subtitle">YOUR SPECIAL NIGHT</p>
+            <h2>당신만의 특별한 밤을 만나보세요.</h2>
+            <p>
+              객실에 대한 자세한 문의와 예약은<br />
+              아래 버튼을 통해 확인하실 수 있습니다.
+            </p>
+          </div>
+          <a href="contact.html" class="contact-button site-cta-button">예약 및 문의</a>
         </div>
       </section>
     </main>
 
     <!-- 푸터 -->
     <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-logo">DAEGU NIGHT</div>
-        <p>합리적인 가격으로 누리는 특별한 밤</p>
+      <div
+        class="footer-inner"
+        data-aos="fade-up"
+        data-aos-anchor-placement="top-bottom"
+      >
+        <p class="footer-logo">DAEGU NIGHT</p>
+        <p class="footer-slogan">합리적인 가격으로 누리는 특별한 밤</p>
+        <div class="footer-divider" aria-hidden="true"></div>
+        <p class="footer-location">대구광역시 중구 동성로 일대</p>
+        <p class="footer-notice">본 사이트는 웹 프로젝트 제작을 위한 가상 숙소입니다.</p>
         <p class="footer-copy">© 2026 DAEGU NIGHT. All Rights Reserved.</p>
       </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="js/aos-init.js"></script>
   </body>
 </html>

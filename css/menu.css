@@ -17,145 +17,6 @@ html {
 }
 
 /* =========================================
-   1. 상단 헤더
-   HOME 페이지와 동일한 디자인
-========================================= */
-
-.menu-page .site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-
-  width: 100%;
-
-  color: #ffffff;
-
-  background: rgba(10, 15, 25, 0.48);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-/* PC 상단 메뉴 전체 */
-
-.menu-page .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 1500px;
-  min-height: 85px;
-
-  margin: 0 auto;
-  padding: 0 45px;
-}
-
-/* 로고 */
-
-.menu-page .logo {
-  color: var(--color-gold);
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 30px;
-  font-weight: 600;
-
-  letter-spacing: 3px;
-
-  white-space: nowrap;
-}
-
-/* PC 내비게이션 오른쪽 정렬 */
-
-.menu-page .site-nav {
-  margin-left: auto;
-}
-
-.menu-page .site-nav ul {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 0;
-}
-
-.menu-page .site-nav li {
-  border-right: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.menu-page .site-nav li:last-child {
-  border-right: none;
-}
-
-/* 메뉴 항목 */
-
-.menu-page .site-nav a {
-  display: inline-grid;
-  grid-template-areas: "menu-label";
-  place-items: center;
-
-  min-width: 115px;
-  padding: 10px 15px;
-
-  color: #ffffff;
-
-  font-size: 12px;
-  letter-spacing: 1.5px;
-
-  transition: color 0.3s ease;
-}
-
-/* 영어와 한국어 겹쳐 표시 */
-
-.menu-page .site-nav a span {
-  grid-area: menu-label;
-  transition: opacity 0.25s ease;
-}
-
-/* 기본 상태: 영어 표시 */
-
-.menu-page .site-nav .nav-en {
-  opacity: 1;
-}
-
-/* 기본 상태: 한국어 숨김 */
-
-.menu-page .site-nav .nav-ko {
-  opacity: 0;
-  letter-spacing: 0;
-}
-
-/* 마우스 및 키보드 선택 시 영어 숨김 */
-
-.menu-page .site-nav a:hover .nav-en,
-.menu-page .site-nav a:focus-visible .nav-en {
-  opacity: 0;
-}
-
-/* 마우스 및 키보드 선택 시 한국어 표시 */
-
-.menu-page .site-nav a:hover .nav-ko,
-.menu-page .site-nav a:focus-visible .nav-ko {
-  opacity: 1;
-}
-
-/* 마우스 효과 */
-
-.menu-page .site-nav a:hover {
-  color: var(--color-gold);
-}
-
-/* PC에서는 햄버거 메뉴 숨김 */
-
-.menu-page .menu-toggle,
-.menu-page .menu-icon {
-  display: none;
-}
-
-/* =========================================
    2. 메인 배너
 ========================================= */
 
@@ -174,7 +35,7 @@ html {
 
   background:
     linear-gradient(rgba(8, 13, 22, 0.55), rgba(8, 13, 22, 0.72)),
-    url("../images/lounge.png");
+    url("../images/standard-room.png");
 
   background-size: cover;
   background-position: center;
@@ -266,8 +127,8 @@ html {
 ========================================= */
 
 .room-introduction {
-  padding: 115px 20px 105px;
-  background-color: var(--color-ivory);
+  padding: 100px 20px 85px;
+  background-color: #0c131e;
 }
 
 .section-heading {
@@ -288,13 +149,13 @@ html {
 .section-heading h2 {
   margin-bottom: 22px;
 
-  color: var(--color-navy);
+  color: var(--color-ivory);
   font-size: 34px;
   font-weight: 700;
 }
 
 .section-description {
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.72);
   font-size: 15px;
   line-height: 1.9;
 }
@@ -304,7 +165,8 @@ html {
 ========================================= */
 
 .room-floor {
-  padding: 110px 7%;
+  padding: clamp(80px, 9vw, 120px) 7%;
+  color: var(--color-ivory);
 }
 
 .floor-heading {
@@ -313,7 +175,9 @@ html {
   gap: 30px;
 
   max-width: 1250px;
-  margin: 0 auto 55px;
+  margin: 0 auto 45px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(198, 165, 107, 0.4);
 }
 
 .floor-number {
@@ -336,12 +200,15 @@ html {
 
 .floor-heading h2 {
   margin: 0 0 12px;
+  color: var(--color-ivory);
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 34px;
   font-weight: 700;
 }
 
 .floor-heading p:last-child {
   margin: 0;
+  color: rgba(247, 244, 237, 0.7);
   font-size: 15px;
   line-height: 1.7;
 }
@@ -350,14 +217,66 @@ html {
    5. 객실 카드 배치
 ========================================= */
 
-.room-grid {
+.room-showcase {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 30px;
+  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.85fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
 
   max-width: 1250px;
   margin: 0 auto;
+}
+
+.room-feature-image {
+  overflow: hidden;
+  height: clamp(380px, 43vw, 560px);
+  margin: 0;
+
+  background-color: #101722;
+  border: 1px solid rgba(198, 165, 107, 0.35);
+}
+
+.room-feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.pc-showcase .room-feature-image img {
+  object-position: 80% center;
+}
+
+.room-info-list {
+  display: grid;
+}
+
+.standard-showcase .room-info-list {
+  gap: 0 24px;
+}
+
+.pc-showcase .room-info-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 28px;
+}
+
+.pc-showcase .room-info-card:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.theme-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.95fr);
+  align-items: start;
+  gap: 24px;
+
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.theme-room-support {
+  display: grid;
+  gap: 18px;
 }
 
 /* =========================================
@@ -367,29 +286,25 @@ html {
 .room-card {
   overflow: hidden;
 
-  background: #ffffff;
-  border: 1px solid rgba(23, 36, 58, 0.08);
-  border-radius: 6px;
-
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  background: rgba(16, 23, 34, 0.94);
+  border: 1px solid rgba(198, 165, 107, 0.2);
+  border-radius: 2px;
 
   transition:
     transform 0.35s ease,
-    box-shadow 0.35s ease,
     border-color 0.35s ease;
 }
 
 .room-card:hover {
-  transform: translateY(-7px);
-  border-color: rgba(198, 165, 107, 0.65);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: rgba(198, 165, 107, 0.7);
 }
 
 .room-card-image {
+  position: relative;
   overflow: hidden;
   width: 100%;
-  height: 250px;
-  background-color: #d9d9d9;
+  background-color: #101722;
 }
 
 .room-card-image img {
@@ -397,23 +312,91 @@ html {
 
   width: 100%;
   height: 100%;
-
   object-fit: cover;
   object-position: center;
-
   transition: transform 0.6s ease;
 }
 
 .room-card:hover .room-card-image img {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+.room-info-card {
+  padding: 23px 0 25px;
+
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(198, 165, 107, 0.32);
+  border-radius: 0;
+}
+
+.room-info-card:last-child {
+  border-bottom: 0;
+}
+
+.room-info-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(198, 165, 107, 0.65);
+}
+
+.theme-room-card--feature .room-card-image {
+  height: clamp(380px, 43vw, 560px);
+}
+
+.theme-room-card--support {
+  display: grid;
+  grid-template-columns: minmax(120px, 0.8fr) minmax(0, 1.2fr);
+  min-height: 190px;
+}
+
+.theme-room-card--support .room-card-image {
+  height: 100%;
+  min-height: 190px;
+}
+
+.theme-room-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding: 30px 26px 20px;
+
+  background: linear-gradient(transparent, rgba(8, 13, 22, 0.94));
+}
+
+.theme-room-label .room-category {
+  margin-bottom: 5px;
+}
+
+.theme-room-label h3 {
+  margin: 0;
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 2vw, 27px);
+  letter-spacing: 1px;
+}
+
+.theme-room-card--support .theme-room-label {
+  padding: 24px 14px 12px;
+}
+
+.theme-room-card--support .theme-room-label .room-category {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.theme-room-card--support .theme-room-label h3 {
+  font-size: 16px;
+  letter-spacing: 0.5px;
 }
 
 .room-card-content {
-  padding: 28px 25px 25px;
+  padding: 22px 25px 24px;
 }
 
 .room-category {
-  margin-bottom: 12px;
+  margin-bottom: 9px;
 
   color: var(--color-gold);
   font-size: 11px;
@@ -422,18 +405,18 @@ html {
 }
 
 .room-card h3 {
-  margin: 0 0 15px;
+  margin: 0 0 12px;
 
-  color: var(--color-navy);
+  color: var(--color-ivory);
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 21px;
   font-weight: 700;
 }
 
 .room-description {
-  min-height: 55px;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
 
-  color: var(--color-gray);
+  color: rgba(247, 244, 237, 0.7);
   font-size: 13px;
   line-height: 1.8;
 }
@@ -443,12 +426,12 @@ html {
   align-items: center;
   justify-content: space-between;
 
-  padding-top: 18px;
-  border-top: 1px solid #eeeeee;
+  padding-top: 14px;
+  border-top: 1px solid rgba(198, 165, 107, 0.25);
 }
 
 .room-price {
-  color: var(--color-navy);
+  color: var(--color-gold);
   font-size: 17px;
   font-weight: 700;
 }
@@ -465,11 +448,7 @@ html {
 ========================================= */
 
 .standard-section {
-  background-color: var(--color-ivory);
-}
-
-.standard-section .room-card {
-  background-color: #ffffff;
+  background-color: #0c131e;
 }
 
 /* =========================================
@@ -479,8 +458,9 @@ html {
 .theme-section {
   color: #ffffff;
 
+  background-color: #101722;
   background-image:
-    linear-gradient(rgba(10, 13, 20, 0.8), rgba(10, 13, 20, 0.86)),
+    linear-gradient(rgba(10, 13, 20, 0.88), rgba(10, 13, 20, 0.93)),
     url("../images/room_background.png");
 
   background-size: cover;
@@ -498,11 +478,7 @@ html {
 }
 
 .theme-section .room-card {
-  background-color: #f8f7f3;
-}
-
-.theme-section .room-card:hover {
-  border-color: var(--color-gold);
+  background-color: rgba(16, 23, 34, 0.96);
 }
 
 /* =========================================
@@ -510,137 +486,11 @@ html {
 ========================================= */
 
 .pc-section {
-  background-color: #eeece6;
+  background-color: #111a26;
 }
-
-/* =========================================
-   10. 예약 및 문의
-========================================= */
 
 .room-contact {
-  position: relative;
-
-  padding: 120px 20px;
-
-  text-align: center;
-  color: #ffffff;
-
-  background:
-    linear-gradient(rgba(12, 20, 32, 0.88), rgba(12, 20, 32, 0.9)),
-    url("../images/lounge.png");
-
-  background-size: cover;
-  background-position: center;
-}
-
-.room-contact-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.room-contact h2 {
-  margin-bottom: 25px;
-
-  color: #ffffff;
-  font-size: clamp(26px, 4vw, 38px);
-  font-weight: 700;
-}
-
-.room-contact p:not(.section-subtitle) {
-  margin-bottom: 35px;
-
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-.contact-button {
-  display: inline-block;
-  padding: 15px 40px;
-
-  border: 1px solid var(--color-gold);
-  color: #ffffff;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: all 0.3s ease;
-}
-
-.contact-button:hover {
-  background-color: var(--color-gold);
-  color: var(--color-dark);
-  transform: translateY(-3px);
-}
-
-/* =========================================
-   11. 푸터
-========================================= */
-
-.menu-page .site-footer {
-  background-color: var(--color-dark);
-  color: #ffffff;
-}
-
-.menu-page .footer-inner {
-  padding: 55px 20px;
-  text-align: center;
-}
-
-.menu-page .footer-logo {
-  margin-bottom: 15px;
-
-  color: var(--color-gold);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 23px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
-
-.menu-page .footer-inner p {
-  margin-bottom: 12px;
-
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 13px;
-}
-
-.menu-page .footer-copy {
-  margin-top: 30px;
-
-  color: rgba(255, 255, 255, 0.4) !important;
-  font-size: 11px !important;
-}
-
-/* =========================================
-   12. 스크롤 등장 효과
-   JavaScript 사용하지 않음
-========================================= */
-
-@supports (animation-timeline: view()) {
-  .room-card {
-    animation: roomReveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-
-  .floor-heading,
-  .section-heading {
-    animation: roomReveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 30%;
-  }
-
-  @keyframes roomReveal {
-    from {
-      opacity: 0;
-      transform: translateY(15px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  background-image: url("../images/lounge.png");
 }
 
 /* =========================================
@@ -649,29 +499,44 @@ html {
 ========================================= */
 
 @media (max-width: 1050px) {
-  .menu-page .header-inner {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .menu-page .site-nav a {
-    min-width: 90px;
-    padding: 10px;
-
-    font-size: 11px;
-  }
-
   .room-floor {
     padding: 90px 5%;
   }
 
-  .room-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
+  .room-showcase {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 35px;
   }
 
-  .room-card-image {
-    height: 230px;
+  .room-feature-image {
+    height: clamp(340px, 42vw, 480px);
+  }
+
+  .standard-showcase .room-info-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+  }
+
+  .standard-showcase .room-info-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .theme-showcase {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 18px;
+  }
+
+  .theme-room-card--feature .room-card-image {
+    height: clamp(380px, 46vw, 500px);
+  }
+
+  .theme-room-card--support {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    min-height: 180px;
+  }
+
+  .theme-room-card--support .room-card-image {
+    min-height: 180px;
   }
 
   .floor-number {
@@ -689,112 +554,6 @@ html {
 ========================================= */
 
 @media (max-width: 768px) {
-  /* 모바일 헤더 */
-
-  .menu-page .header-inner {
-    display: grid;
-
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-rows: 70px auto;
-
-    min-height: 70px;
-
-    padding: 0 22px;
-  }
-
-  .menu-page .logo {
-    grid-column: 2;
-    grid-row: 1;
-
-    justify-self: center;
-
-    font-size: 21px;
-    letter-spacing: 2px;
-  }
-
-  /* 모바일 메뉴 버튼 */
-
-  .menu-page .menu-toggle {
-    display: none;
-  }
-
-  .menu-page .menu-icon {
-    grid-column: 3;
-    grid-row: 1;
-
-    justify-self: end;
-
-    display: flex;
-
-    width: 29px;
-    height: 22px;
-
-    flex-direction: column;
-    justify-content: space-between;
-
-    cursor: pointer;
-  }
-
-  .menu-page .menu-icon span {
-    display: block;
-
-    width: 100%;
-    height: 2px;
-
-    background: var(--color-gold);
-
-    border-radius: 2px;
-  }
-
-  /* 모바일 메뉴 */
-
-  .menu-page .site-nav {
-    display: none;
-
-    grid-column: 1 / -1;
-    grid-row: 2;
-
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .menu-page .site-nav ul {
-    flex-direction: column;
-    align-items: stretch;
-
-    gap: 0;
-
-    padding: 5px 0 18px;
-  }
-
-  .menu-page .site-nav li {
-    width: 100%;
-
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  }
-
-  .menu-page .site-nav li:last-child {
-    border-bottom: none;
-  }
-
-  .menu-page .site-nav a {
-    display: grid;
-
-    width: 100%;
-    min-width: 0;
-
-    padding: 13px 5px;
-
-    text-align: center;
-  }
-
-  /* 체크박스 선택 시 메뉴 열기 */
-
-  .menu-page .menu-toggle:checked ~ .site-nav {
-    display: block;
-  }
-
   /* 메인 배너 */
 
   .room-hero {
@@ -843,16 +602,46 @@ html {
     font-size: 13px;
   }
 
-  .room-grid {
-    gap: 20px;
+  .room-showcase,
+  .theme-showcase {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 
-  .room-card-image {
-    height: 200px;
+  .room-feature-image {
+    height: clamp(280px, 62vw, 460px);
+  }
+
+  .standard-showcase .room-info-list,
+  .pc-showcase .room-info-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pc-showcase .room-info-card:nth-last-child(2) {
+    border-bottom: 1px solid rgba(198, 165, 107, 0.32);
+  }
+
+  .theme-room-card--feature .room-card-image {
+    height: clamp(320px, 64vw, 460px);
+  }
+
+  .theme-room-support {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .theme-room-card--support {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .theme-room-card--support .room-card-image {
+    height: 220px;
+    min-height: 0;
   }
 
   .room-card-content {
-    padding: 22px 18px;
+    padding: 20px 18px;
   }
 
   .room-card h3 {
@@ -863,11 +652,6 @@ html {
     font-size: 12px;
   }
 
-  /* 예약 문의 */
-
-  .room-contact {
-    padding: 90px 20px;
-  }
 }
 
 /* =========================================
@@ -893,13 +677,26 @@ html {
     font-size: 14px;
   }
 
-  .room-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+  .room-showcase,
+  .theme-showcase {
+    gap: 22px;
   }
 
-  .room-card-image {
-    height: 240px;
+  .room-feature-image {
+    height: 280px;
+  }
+
+  .theme-room-card--feature .room-card-image {
+    height: 320px;
+  }
+
+  .theme-room-support {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .theme-room-card--support .room-card-image {
+    height: 230px;
   }
 
   .room-card-content {
@@ -941,10 +738,15 @@ html {
     scroll-behavior: auto;
   }
 
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .room-card,
   .room-card-image img,
   .hero-button,
-  .contact-button,
   .floor-heading,
   .section-heading {
     animation: none !important;
