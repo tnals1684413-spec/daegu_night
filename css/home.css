@@ -110,7 +110,7 @@
 
   color: #ffffff;
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-main);
   font-size: clamp(48px, 7vw, 92px);
   font-weight: 400;
 
@@ -599,7 +599,7 @@
 
   color: var(--color-gold);
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-main);
   font-size: 35px;
 }
 

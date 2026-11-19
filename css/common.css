@@ -10,7 +10,7 @@
   --color-white: #ffffff;
   --color-gray: #777777;
 
-  --font-main: Arial, "Malgun Gothic", sans-serif;
+  --font-main: "Noto Sans KR", sans-serif;
 }
 
 /* =================================
@@ -486,7 +486,7 @@ img {
 
   color: var(--color-white);
 
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-main);
   font-size: clamp(28px, 3.2vw, 40px);
   line-height: 1.45;
 }

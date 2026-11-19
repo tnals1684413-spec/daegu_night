@@ -624,7 +624,11 @@ html {
 /* 연락처 카드 */
 
 .contact-info-card {
+  display: flex;
+  flex-direction: column;
+
   min-height: 260px;
+  height: 100%;
   box-sizing: border-box;
 
   padding: 32px 28px;
@@ -680,7 +684,9 @@ html {
 
   color: var(--color-gold);
 
+  font-family: var(--font-main);
   font-size: 21px;
+  line-height: 1;
 }
 
 .info-category {
@@ -701,6 +707,8 @@ html {
   color: var(--color-white);
 
   font-size: 21px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .contact-info-card p {
@@ -716,9 +724,12 @@ html {
 .info-description {
   display: block;
 
+  margin-top: auto;
+
   color: rgba(247, 244, 237, 0.55);
 
   font-size: 11px;
+  font-weight: 400;
   line-height: 1.8;
 }
 
